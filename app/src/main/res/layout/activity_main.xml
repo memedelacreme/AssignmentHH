@@ -34,17 +34,17 @@
         android:textStyle="bold"
         android:gravity="center"
 
-        app:layout_constraintBaseline_toBaselineOf="@+id/lessons"
+        app:layout_constraintBaseline_toBaselineOf="@+id/content"
         app:layout_constraintEnd_toEndOf="@+id/header" />
 
     <TextView
-        android:id="@+id/lessons"
+        android:id="@+id/content"
         android:layout_width="169dp"
         android:layout_height="181dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/rounded_textview"
-        android:text="Lessons"
+        android:text="Content"
         android:textAlignment="center"
         android:textStyle="bold"
         android:gravity="center"
@@ -65,15 +65,15 @@
         android:gravity="center"
 
         app:layout_constraintStart_toStartOf="@+id/header"
-        app:layout_constraintTop_toBottomOf="@+id/lessons" />
+        app:layout_constraintTop_toBottomOf="@+id/content" />
 
     <TextView
-        android:id="@+id/Youtube"
+        android:id="@+id/additional_resources"
         android:layout_width="169dp"
         android:layout_height="181dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/rounded_textview"
-        android:text="Youtube"
+        android:text="Additional Resources"
         android:textAlignment="center"
         android:textStyle="bold"
         android:gravity="center"
