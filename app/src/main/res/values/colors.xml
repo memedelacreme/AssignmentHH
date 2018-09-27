@@ -3,4 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="LessonColor">#c0ffa3</color>
+    <color name="FlashColor">#F4d442</color>
+    <color name="QuizColor">#87c3ff</color>
+    <color name="YoutubeColor">#ff8282</color>
+
 </resources>

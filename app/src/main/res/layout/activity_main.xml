@@ -28,7 +28,12 @@
         android:layout_width="169dp"
         android:layout_height="181dp"
         android:layout_marginEnd="8dp"
+        android:background="@color/FlashColor"
         android:text="Flashcards"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:gravity="center"
+
         app:layout_constraintBaseline_toBaselineOf="@+id/lessons"
         app:layout_constraintEnd_toEndOf="@+id/header" />
 
@@ -38,7 +43,12 @@
         android:layout_height="181dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
+        android:background="@color/LessonColor"
         android:text="Lessons"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:gravity="center"
+
         app:layout_constraintStart_toStartOf="@+id/header"
         app:layout_constraintTop_toBottomOf="@+id/header" />
 
@@ -48,16 +58,27 @@
         android:layout_height="181dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:background="@color/QuizColor"
         android:text="Quizzes"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:gravity="center"
+
         app:layout_constraintStart_toStartOf="@+id/header"
         app:layout_constraintTop_toBottomOf="@+id/lessons" />
 
     <TextView
         android:id="@+id/Youtube"
-        android:layout_width="wrap_content"
-        android:layout_height="17dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="199dp"
-        tools:layout_editor_absoluteY="349dp" />
+        android:layout_width="169dp"
+        android:layout_height="181dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/YoutubeColor"
+        android:text="Youtube"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:gravity="center"
+
+        app:layout_constraintBaseline_toBaselineOf="@+id/quiz"
+        app:layout_constraintEnd_toEndOf="@+id/header" />
 
 </android.support.constraint.ConstraintLayout>
