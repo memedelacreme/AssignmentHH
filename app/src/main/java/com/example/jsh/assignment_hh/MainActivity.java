@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 TextView t = (TextView) v;
-                String text = t.toString();
+                String text = t.getText().toString();
                 Toast.makeText(MainActivity.this, "You selected " + text, Toast.LENGTH_SHORT).show();
             }
         };

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -11,74 +10,106 @@
         android:id="@+id/header"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:background="@color/colorAccent"
         android:gravity="center"
-        android:text="I am here"
+        android:text="Header title: Insert here "
         android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/flashcards"
-        android:layout_width="169dp"
-        android:layout_height="181dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/rounded_textview"
-        android:text="Flashcards"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:gravity="center"
-
-        app:layout_constraintBaseline_toBaselineOf="@+id/content"
-        app:layout_constraintEnd_toEndOf="@+id/header" />
-
-    <TextView
-        android:id="@+id/content"
-        android:layout_width="169dp"
-        android:layout_height="181dp"
+    <LinearLayout
+        android:id="@+id/vertical"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/rounded_textview"
-        android:text="Content"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:gravity="center"
-
-        app:layout_constraintStart_toStartOf="@+id/header"
-        app:layout_constraintTop_toBottomOf="@+id/header" />
-
-    <TextView
-        android:id="@+id/quiz"
-        android:layout_width="169dp"
-        android:layout_height="181dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/rounded_textview"
-        android:text="Quizzes"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:gravity="center"
-
-        app:layout_constraintStart_toStartOf="@+id/header"
-        app:layout_constraintTop_toBottomOf="@+id/content" />
-
-    <TextView
-        android:id="@+id/additional_resources"
-        android:layout_width="169dp"
-        android:layout_height="181dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/rounded_textview"
-        android:text="Additional Resources"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:gravity="center"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+        android:weightSum="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header">
 
-        app:layout_constraintBaseline_toBaselineOf="@+id/quiz"
-        app:layout_constraintEnd_toEndOf="@+id/header" />
+        <LinearLayout
+            android:id="@+id/horizontal1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+android:layout_marginTop="10dp"
+            android:layout_weight="1.5"
+            android:weightSum="2"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/flashcards"
+                android:layout_width="130dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/rounded_textview"
+                android:gravity="center"
+                android:text="Flashcards"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="130dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/rounded_textview"
+                android:gravity="center"
+                android:text="Content"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/horizontal2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1.5"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_gravity="center_horizontal">
+
+
+            <TextView
+                android:id="@+id/quiz"
+                android:layout_width="130dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/rounded_textview"
+                android:gravity="center"
+                android:text="Quizzes"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/additional_resources"
+                android:layout_width="130dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/rounded_textview"
+                android:gravity="center"
+                android:text="Additional Resources"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>
