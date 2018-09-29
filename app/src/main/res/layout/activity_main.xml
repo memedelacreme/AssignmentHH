@@ -27,9 +27,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="32dp"
         android:background="@color/colorPrimary"
         android:orientation="vertical"
         android:weightSum="3"
@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1.5"
             android:orientation="horizontal"
@@ -52,24 +52,26 @@
 
             <TextView
                 android:id="@+id/flashcards"
-                android:layout_width="130dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/rounded_textview"
                 android:gravity="center"
                 android:text="Flashcards"
+                android:padding="20dp"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/content"
-                android:layout_width="130dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
                 android:background="@drawable/rounded_textview"
                 android:gravity="center"
                 android:text="Content"
+                android:padding="20dp"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -81,7 +83,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="20dp"
             android:layout_weight="1.5"
             android:orientation="horizontal"
             android:weightSum="2"
@@ -90,24 +92,26 @@
 
             <TextView
                 android:id="@+id/quiz"
-                android:layout_width="130dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/rounded_textview"
                 android:gravity="center"
                 android:text="Quizzes"
+                android:padding="20dp"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/additional_resources"
-                android:layout_width="130dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
                 android:background="@drawable/rounded_textview"
                 android:gravity="center"
-                android:text="Additional Resources"
+                android:text="Additional \n Resources"
+                android:padding="20dp"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
