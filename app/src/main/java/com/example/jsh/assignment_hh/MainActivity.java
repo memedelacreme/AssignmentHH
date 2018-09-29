@@ -1,13 +1,16 @@
 package com.example.jsh.assignment_hh;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
 
 
     @Override
@@ -20,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
         TextView Quiz = (TextView) findViewById(R.id.quiz);
         TextView additionalResources = (TextView) findViewById(R.id.additional_resources);
 
-        View.OnClickListener menuOptions = new View.OnClickListener() {
+        //This onClickListener was used to test that the TextViews worked as buttons. Feel free to delete when we've made activities for each section.
+        View.OnClickListener test = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TextView t = (TextView) v;
@@ -29,10 +33,49 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        Content.setOnClickListener(menuOptions);
-        Flashcards.setOnClickListener(menuOptions);
-        Quiz.setOnClickListener(menuOptions);
-        additionalResources.setOnClickListener(menuOptions);
+        //This is the onCLickListener for the menu. It reads which button the user clicks and takes them to the appropriate menu.
+        View.OnClickListener mainMenu = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView t = (TextView) v;
+                String text = t.getText().toString();
+
+                Intent intent = null;
+
+                switch (text){
+                    case "Flashcards":
+                        //intent = new Intent(getApplicationContext(), [CLASS_NAME_HERE].class);
+                        break;
+
+                    case "Content":
+                        //intent = new Intent(getApplicationContext(), [CLASS_NAME_HERE].class);
+                        break;
+
+                    case "Quizzes":
+                        //intent = new Intent(getApplicationContext(), [CLASS_NAME_HERE].class);
+                        break;
+
+                    case "Additional \n Resources":
+                        intent = new Intent(getApplicationContext(), Additional_Resources_Menu.class);
+                        Log.d(TAG, "onClick: User clicked on Additional Resources >> Creating intent: " + intent.toString());
+                        break;
+
+                    default:
+                }
+
+                if (intent != null){
+                    startActivity(intent);
+                    Log.d(TAG, "onClick: Activity started");
+
+                }
+            }
+        };
+
+        //Note that a lot of these are set to "test" not "mainMenu".
+        Content.setOnClickListener(test);
+        Flashcards.setOnClickListener(test);
+        Quiz.setOnClickListener(test);
+        additionalResources.setOnClickListener(mainMenu);
     }
 
 

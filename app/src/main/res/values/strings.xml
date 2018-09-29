@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Assignment - HH</string>
+    <string name="title_activity_additional__resources__menu">Additional_Resources_Menu</string>
+    <string name="menu_flashcards">Flashcards</string>
+    <string name="menu_content">Content</string>
+    <string name="menu_quiz">Quizzes</string>
+    <string name="menu_additional_resources">Additional \n Resources</string>
+
 </resources>
