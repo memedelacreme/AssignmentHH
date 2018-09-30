@@ -8,5 +8,6 @@
     <color name="FlashColor">#F4d442</color>
     <color name="QuizColor">#87c3ff</color>
     <color name="YoutubeColor">#ff8282</color>
+    <color name="SplashColor">#00aff0</color>
 
 </resources>
