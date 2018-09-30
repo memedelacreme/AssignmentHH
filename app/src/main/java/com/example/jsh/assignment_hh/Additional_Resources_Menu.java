@@ -21,10 +21,15 @@ public class Additional_Resources_Menu extends YouTubeBaseActivity implements Yo
 
     public String YOUTUBE_API_KEY = "AIzaSyCqwpllIfLUAZFWhvCWbPQqWVAY6KbOeZ8";
 
-    private YouTubePlayerView youTubeView;
     private YouTubePlayer.PlayerStateChangeListener playerStateChangeListener;
     private YouTubePlayer.PlaybackEventListener playbackEventListener;
     private YouTubePlayer youTubePlayer;
+    private YouTubePlayerView youTubeView1;
+    private YouTubePlayerView youTubeView2;
+    private YouTubePlayerView youTubeView3;
+    private YouTubePlayerView youTubeView4;
+    private YouTubePlayerView youTubeView5;
+
 
 
     @Override
@@ -32,8 +37,20 @@ public class Additional_Resources_Menu extends YouTubeBaseActivity implements Yo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_additional__resources__menu);
 
-        youTubeView = (YouTubePlayerView) findViewById(R.id.video1);
-        youTubeView.initialize(YOUTUBE_API_KEY, this);
+        youTubeView1 = (YouTubePlayerView) findViewById(R.id.video1);
+        youTubeView1.initialize(YOUTUBE_API_KEY, this);
+
+        youTubeView2 = (YouTubePlayerView) findViewById(R.id.video2);
+        youTubeView2.initialize(YOUTUBE_API_KEY, this);
+
+        youTubeView3 = (YouTubePlayerView) findViewById(R.id.video3);
+        youTubeView3.initialize(YOUTUBE_API_KEY, this);
+
+        youTubeView4 = (YouTubePlayerView) findViewById(R.id.video4);
+        youTubeView4.initialize(YOUTUBE_API_KEY, this);
+
+        youTubeView5 = (YouTubePlayerView) findViewById(R.id.video5);
+        youTubeView5.initialize(YOUTUBE_API_KEY, this);
 
         playerStateChangeListener = new YouTubePlayer.PlayerStateChangeListener() {
             @Override
