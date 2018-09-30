@@ -45,14 +45,17 @@ public class MainActivity extends AppCompatActivity {
                 switch (text){
                     case "Flashcards":
                         //intent = new Intent(getApplicationContext(), [CLASS_NAME_HERE].class);
+                        Log.d(TAG, "onClick: User clicked on Flashcards >> Creating intent: " + intent.toString());
                         break;
 
                     case "Content":
                         //intent = new Intent(getApplicationContext(), [CLASS_NAME_HERE].class);
+                        Log.d(TAG, "onClick: User clicked on Content >> Creating intent: " + intent.toString());
                         break;
 
                     case "Quizzes":
                         //intent = new Intent(getApplicationContext(), [CLASS_NAME_HERE].class);
+                        Log.d(TAG, "onClick: User clicked on Quizzes >> Creating intent: " + intent.toString());
                         break;
 
                     case "Additional \n Resources":

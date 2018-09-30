@@ -9,6 +9,8 @@ import android.view.View;
 
 public class Additional_Resources_Menu extends AppCompatActivity {
 
+    public String YOUTUBE_API_KEY = "AIzaSyCqwpllIfLUAZFWhvCWbPQqWVAY6KbOeZ8";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

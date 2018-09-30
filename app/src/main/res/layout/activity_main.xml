@@ -30,7 +30,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="32dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/QuizColor"
         android:orientation="vertical"
         android:weightSum="3"
         app:layout_constraintBottom_toBottomOf="parent"

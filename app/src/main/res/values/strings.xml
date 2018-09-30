@@ -5,5 +5,6 @@
     <string name="menu_content">Content</string>
     <string name="menu_quiz">Quizzes</string>
     <string name="menu_additional_resources">Additional \n Resources</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>
