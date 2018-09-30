@@ -71,6 +71,9 @@ public class Additional_Resources_Menu extends YouTubeBaseActivity implements Yo
             @Override
             public void onVideoStarted() {
 
+                Toast.makeText(Additional_Resources_Menu.this, "Playing video [INSERT VIDEO NAME HERE]", Toast.LENGTH_SHORT).show();
+
+
             }
 
             @Override
@@ -87,6 +90,8 @@ public class Additional_Resources_Menu extends YouTubeBaseActivity implements Yo
         playbackEventListener = new YouTubePlayer.PlaybackEventListener() {
             @Override
             public void onPlaying() {
+
+                Toast.makeText(Additional_Resources_Menu.this, "Playing video [INSERT VIDEO NAME HERE]", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -134,7 +139,6 @@ public class Additional_Resources_Menu extends YouTubeBaseActivity implements Yo
 
         Log.d(TAG, "onInitializationSuccess: Provide is " + provider.getClass().toString() );
         Log.d(TAG, "onInitializationSuccess: Playing video [INSERT NAME HERE]");
-        Toast.makeText(this, "Playing video [INSERT NAME HERE]", Toast.LENGTH_SHORT).show();
 
 
     }
