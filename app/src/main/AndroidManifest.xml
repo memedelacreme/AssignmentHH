@@ -17,7 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +28,8 @@
             android:name=".Additional_Resources_Menu"
             android:label="@string/title_activity_additional__resources__menu"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SplashActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".FlashCardMain"></activity>
     </application>
 
 </manifest>
