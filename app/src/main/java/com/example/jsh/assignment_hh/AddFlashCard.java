@@ -1,5 +1,6 @@
 package com.example.jsh.assignment_hh;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,7 +30,8 @@ public class AddFlashCard extends AppCompatActivity {
                 mTopic.add(t_input.getText().toString());
                 mFact.add(f_input.getText().toString());
 
-
+                Intent FCMIntent = new Intent (AddFlashCard.this, FlashCardMain.class);
+                startActivity(FCMIntent);
                 //TODO:How to display added cards? + Make it go back to the flash cards screen
             }
         });
