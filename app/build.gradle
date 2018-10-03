@@ -35,4 +35,8 @@ dependencies {
 
     //CardView
     implementation 'com.android.support:cardview-v7:27.1.1'
+
+    //Picasso API
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
 }
