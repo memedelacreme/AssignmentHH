@@ -8,12 +8,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.google.android.youtube.player.YouTubeThumbnailLoader;
+import com.google.android.youtube.player.YouTubeThumbnailView;
+import com.squareup.picasso.Picasso;
 
 public class Additional_Resources_Menu extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 

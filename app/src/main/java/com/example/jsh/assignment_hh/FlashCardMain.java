@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class FlashCardMain extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+    public static int counter = 0;
     protected static ArrayList<String> mTopic = new ArrayList<>();
     protected static ArrayList<String> mFact = new ArrayList<>();
 
@@ -38,19 +39,20 @@ public class FlashCardMain extends AppCompatActivity {
     private void getFlashCards(){
         Log.d(TAG, "Getting flash card data");
 
-        mTopic.add("Abstraction");
-        mFact.add("\n" +
-                "The main goal of Abstraction in OOP is to handle complexity by hiding unnecessary details from the user. " +
-                "That enables the user to implement more complex logic on top of the provided abstraction without understanding or " +
-                "even thinking about all the hidden complexity.");
+        if (counter == 0) {
 
-        mTopic.add("Inheritance");
-        mFact.add("Inheritance is a mechanism where you can to derive a class from another class for a hierarchy of " +
-                "classes that share a set of attributes and methods.");
+            mTopic.add("Abstraction");
+            mFact.add("\n" +
+                    "The main goal of Abstraction in OOP is to handle complexity by hiding unnecessary details from the user. " +
+                    "That enables the user to implement more complex logic on top of the provided abstraction without understanding or " +
+                    "even thinking about all the hidden complexity.");
 
+            mTopic.add("Inheritance");
+            mFact.add("Inheritance is a mechanism where you can to derive a class from another class for a hierarchy of " +
+                    "classes that share a set of attributes and methods.");
 
+        }
         startRecyclerView();
-
     }
 
     protected void startRecyclerView(){

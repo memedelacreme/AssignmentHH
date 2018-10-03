@@ -14,67 +14,67 @@
         android:layout_height="fill_parent" >
 
 
-            <LinearLayout
-                android:id="@+id/linearVerticalScroll"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="vertical" >
+        <LinearLayout
+            android:id="@+id/linearVerticalScroll"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
 
-                <com.google.android.youtube.player.YouTubePlayerView
-                    android:id="@+id/video1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="5dp"/>
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/video1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp" />
 
-                <com.google.android.youtube.player.YouTubePlayerView
-                    android:id="@+id/video2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="5dp"/>
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/video2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"/>
 
-                <com.google.android.youtube.player.YouTubePlayerView
-                    android:id="@+id/video3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="5dp"/>
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/video3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"/>
 
-                <com.google.android.youtube.player.YouTubePlayerView
-                    android:id="@+id/video4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="5dp"/>
+            <com.google.android.youtube.player.YouTubeThumbnailView
+                android:id="@+id/video4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"/>
 
-                <com.google.android.youtube.player.YouTubePlayerView
-                    android:id="@+id/video5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="5dp"/>
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/video5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"/>
 
-                <!--<TextView-->
-                    <!--android:id="@+id/TextView03"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_margin="20dip"-->
-                    <!--android:text="test" >-->
-                <!--</TextView>-->
+            <!--<TextView-->
+            <!--android:id="@+id/TextView03"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="20dip"-->
+            <!--android:text="test" >-->
+            <!--</TextView>-->
 
 
-            </LinearLayout>
+        </LinearLayout>
 
     </ScrollView>
 
