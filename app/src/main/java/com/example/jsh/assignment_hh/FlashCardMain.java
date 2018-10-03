@@ -1,18 +1,21 @@
 package com.example.jsh.assignment_hh;
 
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import java.util.ArrayList;
 
 public class FlashCardMain extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-    private ArrayList<String> mTopic = new ArrayList<>();
-    private ArrayList<String> mFact = new ArrayList<>();
+    protected static ArrayList<String> mTopic = new ArrayList<>();
+    protected static ArrayList<String> mFact = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,15 @@ public class FlashCardMain extends AppCompatActivity {
         setContentView(R.layout.activity_flash_card_main);
 
         getFlashCards();
+
+        FloatingActionButton addFCButton = findViewById(R.id.addFlashCardActivity);
+        addFCButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addFCIntent = new Intent(FlashCardMain.this, AddFlashCard.class);
+                startActivity(addFCIntent);
+            }
+        });
     }
 
     //When this method is called, data is added to the array lists declared above (mTopic, mFact)
@@ -41,12 +53,12 @@ public class FlashCardMain extends AppCompatActivity {
 
     }
 
-    private void startRecyclerView(){
+    protected void startRecyclerView(){
         Log.d(TAG, "initRecyclerView: init recyclerView");
 
         RecyclerView recyclerView = findViewById(R.id.recyclerViewID);
 
-        final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mTopic, mFact);

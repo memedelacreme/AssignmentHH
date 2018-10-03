@@ -29,7 +29,8 @@
             android:label="@string/title_activity_additional__resources__menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".FlashCardMain"></activity>
+        <activity android:name=".FlashCardMain" />
+        <activity android:name=".AddFlashCard"></activity>
     </application>
 
 </manifest>
