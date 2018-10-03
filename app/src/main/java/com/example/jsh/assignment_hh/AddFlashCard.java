@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import static com.example.jsh.assignment_hh.FlashCardMain.mTopic;
+
 import static com.example.jsh.assignment_hh.FlashCardMain.mFact;
 import static com.example.jsh.assignment_hh.FlashCardMain.mTopic;
 
