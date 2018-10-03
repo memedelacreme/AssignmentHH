@@ -24,13 +24,12 @@ public class Additional_Resources_Menu extends YouTubeBaseActivity implements Yo
     private YouTubePlayer.PlayerStateChangeListener playerStateChangeListener;
     private YouTubePlayer.PlaybackEventListener playbackEventListener;
     private YouTubePlayer youTubePlayer;
+
     private YouTubePlayerView youTubeView1;
     private YouTubePlayerView youTubeView2;
     private YouTubePlayerView youTubeView3;
     private YouTubePlayerView youTubeView4;
     private YouTubePlayerView youTubeView5;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,8 +90,6 @@ public class Additional_Resources_Menu extends YouTubeBaseActivity implements Yo
             @Override
             public void onPlaying() {
 
-                Toast.makeText(Additional_Resources_Menu.this, "Playing video [INSERT VIDEO NAME HERE]", Toast.LENGTH_SHORT).show();
-
             }
 
             @Override
@@ -134,7 +131,7 @@ public class Additional_Resources_Menu extends YouTubeBaseActivity implements Yo
         youTubePlayer.setPlayerStateChangeListener(playerStateChangeListener);
 
         if(!b){
-            youTubePlayer.cueVideo("YcbcfkLzgvs");
+            youTubePlayer.cueVideo(getResources().getString(R.string.youtube_video_1));
         }
 
         Log.d(TAG, "onInitializationSuccess: Provide is " + provider.getClass().toString() );
@@ -152,7 +149,7 @@ public class Additional_Resources_Menu extends YouTubeBaseActivity implements Yo
             youTubeInitializationResult.getErrorDialog(this, REQUEST_CODE).show();
         }
         else {
-            String error = String.format("There was an error intialising the YouTube Player (%1$s)", youTubeInitializationResult.toString());
+            String error = String.format("There was an error intializing the YouTube Player (%1$s)", youTubeInitializationResult.toString());
             Toast.makeText(this, error, Toast.LENGTH_LONG).show();
         }
     }
