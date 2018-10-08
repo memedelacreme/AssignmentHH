@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -19,142 +21,35 @@ import com.google.android.youtube.player.YouTubeThumbnailLoader;
 import com.google.android.youtube.player.YouTubeThumbnailView;
 import com.squareup.picasso.Picasso;
 
-public class Additional_Resources_Menu extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
+public class Additional_Resources_Menu extends AppCompatActivity {
 
     private static final String TAG = "Additional_Resources_M";
 
     public String YOUTUBE_API_KEY = "AIzaSyCqwpllIfLUAZFWhvCWbPQqWVAY6KbOeZ8";
-
-    private YouTubePlayer.PlayerStateChangeListener playerStateChangeListener;
-    private YouTubePlayer.PlaybackEventListener playbackEventListener;
-    private YouTubePlayer youTubePlayer;
-
-    private YouTubePlayerView youTubeView1;
-    private YouTubePlayerView youTubeView2;
-    private YouTubePlayerView youTubeView3;
-    private YouTubePlayerView youTubeView4;
-    private YouTubePlayerView youTubeView5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_additional__resources__menu);
 
-        youTubeView1 = (YouTubePlayerView) findViewById(R.id.video1);
-        youTubeView1.initialize(YOUTUBE_API_KEY, this);
+        VideoAdapter adapter = new VideoAdapter(this, VideoDetails.getMyVideos());
 
-        youTubeView2 = (YouTubePlayerView) findViewById(R.id.video2);
-        youTubeView2.initialize(YOUTUBE_API_KEY, this);
-
-        youTubeView3 = (YouTubePlayerView) findViewById(R.id.video3);
-        youTubeView3.initialize(YOUTUBE_API_KEY, this);
-
-        youTubeView4 = (YouTubePlayerView) findViewById(R.id.video4);
-        youTubeView4.initialize(YOUTUBE_API_KEY, this);
-
-        youTubeView5 = (YouTubePlayerView) findViewById(R.id.video5);
-        youTubeView5.initialize(YOUTUBE_API_KEY, this);
-
-        playerStateChangeListener = new YouTubePlayer.PlayerStateChangeListener() {
-            @Override
-            public void onLoading() {
-
-            }
-
-            @Override
-            public void onLoaded(String s) {
-
-            }
-
-            @Override
-            public void onAdStarted() {
-
-            }
-
-            @Override
-            public void onVideoStarted() {
-
-                Toast.makeText(Additional_Resources_Menu.this, "Playing video [INSERT VIDEO NAME HERE]", Toast.LENGTH_SHORT).show();
-
-
-            }
-
-            @Override
-            public void onVideoEnded() {
-
-            }
-
-            @Override
-            public void onError(YouTubePlayer.ErrorReason errorReason) {
-
-            }
-
-        };
-        playbackEventListener = new YouTubePlayer.PlaybackEventListener() {
-            @Override
-            public void onPlaying() {
-
-            }
-
-            @Override
-            public void onPaused() {
-
-            }
-
-            @Override
-            public void onStopped() {
-
-            }
-
-            @Override
-            public void onBuffering(boolean b) {
-
-            }
-
-            @Override
-            public void onSeekTo(int i) {
-
-            }
-        };
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-    }
-
-    @Override
-    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-
-        this.youTubePlayer = youTubePlayer;
-        youTubePlayer.setPlaybackEventListener(playbackEventListener);
-        youTubePlayer.setPlayerStateChangeListener(playerStateChangeListener);
-
-        if(!b){
-            youTubePlayer.cueVideo(getResources().getString(R.string.youtube_video_1));
-        }
-
-        Log.d(TAG, "onInitializationSuccess: Provide is " + provider.getClass().toString() );
-        Log.d(TAG, "onInitializationSuccess: Playing video [INSERT NAME HERE]");
-
+        ListView listView = (ListView) findViewById(R.id.myListview);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(playVideo);
 
     }
 
-    @Override
-    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+    private AdapterView.OnItemClickListener playVideo = new AdapterView.OnItemClickListener() {
+        public void onItemClick(AdapterView parent, View v, int position, long id)
+        {
 
-        final int REQUEST_CODE = 1;
+            //ToDO make this actually work:_
 
-        if (youTubeInitializationResult.isUserRecoverableError()){
-            youTubeInitializationResult.getErrorDialog(this, REQUEST_CODE).show();
+            Log.d(TAG, "onItemClick: Clicked on a Video ");
+
+            // Display a Toast.
+            Toast.makeText(getApplicationContext(),"You've clicked on a Video",Toast.LENGTH_SHORT).show();
         }
-        else {
-            String error = String.format("There was an error intializing the YouTube Player (%1$s)", youTubeInitializationResult.toString());
-            Toast.makeText(this, error, Toast.LENGTH_LONG).show();
-        }
-    }
+    };
 }
