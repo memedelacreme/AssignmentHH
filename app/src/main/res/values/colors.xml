@@ -9,6 +9,8 @@
     <color name="QuizColor">#87c3ff</color>
     <color name="YoutubeColor">#ff8282</color>
     <color name="SplashColor">#0E6273</color>
-    <color name ="CardColor">#c6e2ff</color>
+    <color name ="FlashCardBackground">#c6e2ff</color>
+    <color name ="TextInput">#D3D3D3</color>
+
 
 </resources>

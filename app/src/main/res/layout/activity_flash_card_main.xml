@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/CardColor"
+    android:background="@color/FlashCardBackground"
     tools:context="com.example.jsh.assignment_hh.FlashCardMain">
 
     <android.support.v7.widget.RecyclerView
