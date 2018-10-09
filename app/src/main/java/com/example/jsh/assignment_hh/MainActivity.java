@@ -66,14 +66,19 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (intent != null){
-                    startActivity(intent);
-                    Log.d(TAG, "onClick: Activity started");
+                    try {
+                        startActivity(intent);
+                        Log.d(TAG, "onClick: Activity started");
+
+                    } catch (Exception e){
+                        Log.d(TAG, "onClick: Exception caught " + e);
+                    }
 
                 }
             }
         };
 
-        //Note that a lot of these are set to "test" not "mainMenu".
+        //todo change these from "test" to "mainMenu" when readu.
         Content.setOnClickListener(test);
         Flashcards.setOnClickListener(mainMenu);
         Quiz.setOnClickListener(test);

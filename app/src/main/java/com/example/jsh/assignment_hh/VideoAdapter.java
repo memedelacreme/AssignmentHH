@@ -1,6 +1,8 @@
 package com.example.jsh.assignment_hh;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -47,7 +50,7 @@ public class VideoAdapter extends ArrayAdapter<VideoDetails> {
         //set the description
         description.setText(videoDetails.getVideoDescription());
 
-        //insert onClick here (has been implemented in the main method?
+
 
         return convertView;
     }
