@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case "Content":
-                        //intent = new Intent(getApplicationContext(), [CLASS_NAME_HERE].class);
+                        intent = new Intent(getApplicationContext(), ContentMain.class);
                         Log.d(TAG, "onClick: User clicked on Content >> Creating intent: " + intent.toString());
                         break;
 
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         //todo change these from "test" to "mainMenu" when readu.
-        Content.setOnClickListener(test);
+        Content.setOnClickListener(mainMenu);
         Flashcards.setOnClickListener(mainMenu);
         Quiz.setOnClickListener(test);
         additionalResources.setOnClickListener(mainMenu);

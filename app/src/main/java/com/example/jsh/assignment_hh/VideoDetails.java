@@ -19,12 +19,20 @@ public class VideoDetails {
     }
 
     //create getters (setters will be implemented if we decide to allow users to add details)
-    public int getId(){
+    public int getVideoId() {
         return this.videoId;
+    }
+
+    public void setVideoId(int id) {
+        this.videoId = id;
     }
 
     public String getVideoTitle() {
         return this.videoTitle;
+    }
+
+    public void setVideoTitle(String title) {
+        this.videoTitle = title;
     }
 
     public String getVideoUrl() {
@@ -35,6 +43,7 @@ public class VideoDetails {
         return this.videoDescription;
     }
 
+    //TODO add the appropriate videos to the below list
     //array list containing the video and details
     private static ArrayList<VideoDetails> myVideos = new ArrayList<VideoDetails>() {{
         add(new VideoDetails(1, "Terry Crews's Day", "7Tx4PXDW35g", "Filler description 1"));
@@ -50,7 +59,7 @@ public class VideoDetails {
     // getter for a specific item by index
     public static VideoDetails getVideoById(int id) {
         for (VideoDetails video : myVideos) {
-            if(video.getId() == id) {
+            if(video.getVideoId() == id) {
                 return video;
             }
         }

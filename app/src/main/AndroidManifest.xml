@@ -30,7 +30,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity" />
         <activity android:name=".FlashCardMain" />
-        <activity android:name=".AddFlashCard"></activity>
+        <activity android:name=".AddFlashCard" />
+        <activity android:name=".ContentMain"></activity>
     </application>
 
 </manifest>
