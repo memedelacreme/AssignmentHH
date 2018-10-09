@@ -8,15 +8,17 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-
 import java.util.ArrayList;
 
 public class FlashCardMain extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+
     public static int counter = 0;
+
     protected static ArrayList<String> mTopic = new ArrayList<>();
     protected static ArrayList<String> mFact = new ArrayList<>();
+    //Change into one ArrayList
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,7 @@ public class FlashCardMain extends AppCompatActivity {
     }
 
     //When this method is called, data is added to the array lists declared above (mTopic, mFact)
-    private void getFlashCards(){
+    private void getFlashCards() {
         Log.d(TAG, "Getting flash card data");
 
         if (counter == 0) {
@@ -51,11 +53,14 @@ public class FlashCardMain extends AppCompatActivity {
             mFact.add("Inheritance is a mechanism where you can to derive a class from another class for a hierarchy of " +
                     "classes that share a set of attributes and methods.");
 
+            counter++;
+
         }
+
         startRecyclerView();
     }
 
-    protected void startRecyclerView(){
+    private void startRecyclerView() {
         Log.d(TAG, "initRecyclerView: init recyclerView");
 
         RecyclerView recyclerView = findViewById(R.id.recyclerViewID);
@@ -68,5 +73,3 @@ public class FlashCardMain extends AppCompatActivity {
 
     }
 }
-
-

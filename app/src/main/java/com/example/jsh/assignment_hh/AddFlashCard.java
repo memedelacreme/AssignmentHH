@@ -1,11 +1,14 @@
 package com.example.jsh.assignment_hh;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.google.gson.Gson;
 
 import static com.example.jsh.assignment_hh.FlashCardMain.mTopic;
 import static com.example.jsh.assignment_hh.FlashCardMain.mFact;
@@ -33,11 +36,18 @@ public class AddFlashCard extends AppCompatActivity {
 
                 counter++;
 
+                /*SharedPreferences sharedPreferences = getSharedPreferences("sharedPreferences", MODE_PRIVATE);
+                SharedPreferences.Editor editor = SharedPreferences.edit();
+                Gson gson = new Gson();
+                String json = gson.toJson(mTopic, mFact);
+                editor.putString("flash_cards", json);
+                editor.apply();*/
+
                 Intent FCMIntent = new Intent (AddFlashCard.this, FlashCardMain.class);
                 startActivity(FCMIntent);
                 //TODO: Got flashcards working, but they don't save when app closes... Need to fix that
                 //TODO: Create a home button? When adding cards using the Android back button messes things up a bit
-                //TODO: Delete card button --> Maybe do something like Long hold --> X button appears on top corner of card etc. 
+                //TODO: Delete card button --> Maybe do something like Long hold --> X button appears on top corner of card etc.
             }
         });
     }
