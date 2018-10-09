@@ -22,15 +22,15 @@ public class MainActivity extends AppCompatActivity {
         TextView Quiz = (TextView) findViewById(R.id.quiz);
         TextView additionalResources = (TextView) findViewById(R.id.additional_resources);
 
-        //This onClickListener was used to test that the TextViews worked as buttons. Feel free to delete when we've made activities for each section.
-        View.OnClickListener test = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TextView t = (TextView) v;
-                String text = t.getText().toString();
-                Toast.makeText(MainActivity.this, "You selected " + text, Toast.LENGTH_SHORT).show();
-            }
-        };
+//        This onClickListener was used to test that the TextViews worked as buttons. Feel free to delete when we've made activities for each section.
+//        View.OnClickListener test = new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                TextView t = (TextView) v;
+//                String text = t.getText().toString();
+//                Toast.makeText(MainActivity.this, "You selected " + text, Toast.LENGTH_SHORT).show();
+//            }
+//        };
 
         //This is the onCLickListener for the menu. It reads which button the user clicks and takes them to the appropriate menu.
         View.OnClickListener mainMenu = new View.OnClickListener() {
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case "Quizzes":
-                        //intent = new Intent(getApplicationContext(), [CLASS_NAME_HERE].class);
+                        intent = new Intent(getApplicationContext(), QuizMain.class);
                         Log.d(TAG, "onClick: User clicked on Quizzes >> Creating intent: " + intent.toString());
                         break;
 
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         //todo change these from "test" to "mainMenu" when readu.
         Content.setOnClickListener(mainMenu);
         Flashcards.setOnClickListener(mainMenu);
-        Quiz.setOnClickListener(test);
+        Quiz.setOnClickListener(mainMenu);
         additionalResources.setOnClickListener(mainMenu);
     }
 
