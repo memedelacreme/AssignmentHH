@@ -31,7 +31,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".FlashCardMain" />
         <activity android:name=".AddFlashCard" />
-        <activity android:name=".ContentMain"></activity>
+        <activity android:name=".ContentMain" />
+        <activity android:name=".QuizMain"></activity>
     </application>
 
 </manifest>
