@@ -16,8 +16,7 @@ public class FlashCardMain extends AppCompatActivity {
 
     public static int counter = 0;
 
-    protected static ArrayList<String> mTopic = new ArrayList<>();
-    protected static ArrayList<String> mFact = new ArrayList<>();
+    protected static ArrayList<FlashCard> mFlashCard = new ArrayList<>();
     //Change into one ArrayList
 
     @Override
@@ -43,15 +42,14 @@ public class FlashCardMain extends AppCompatActivity {
 
         if (counter == 0) {
 
-            mTopic.add("Abstraction");
-            mFact.add("\n" +
+            mFlashCard.add(new FlashCard("Abstraction","\n" +
                     "The main goal of Abstraction in OOP is to handle complexity by hiding unnecessary details from the user. " +
                     "That enables the user to implement more complex logic on top of the provided abstraction without understanding or " +
-                    "even thinking about all the hidden complexity.");
+                    "even thinking about all the hidden complexity."));
 
-            mTopic.add("Inheritance");
-            mFact.add("Inheritance is a mechanism where you can to derive a class from another class for a hierarchy of " +
-                    "classes that share a set of attributes and methods.");
+            mFlashCard.add(new FlashCard("Inheritance","\n" +
+                    "Inheritance is a mechanism where you can to derive a class from another class for a hierarchy of " +
+                    "classes that share a set of attributes and methods."));
 
             counter++;
 
@@ -68,7 +66,7 @@ public class FlashCardMain extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mTopic, mFact);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mFlashCard);
         recyclerView.setAdapter(adapter);
 
     }

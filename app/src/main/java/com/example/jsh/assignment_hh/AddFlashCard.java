@@ -10,8 +10,7 @@ import android.widget.EditText;
 
 import com.google.gson.Gson;
 
-import static com.example.jsh.assignment_hh.FlashCardMain.mTopic;
-import static com.example.jsh.assignment_hh.FlashCardMain.mFact;
+import static com.example.jsh.assignment_hh.FlashCardMain.mFlashCard;
 import static com.example.jsh.assignment_hh.FlashCardMain.counter;
 
 public class AddFlashCard extends AppCompatActivity {
@@ -34,8 +33,7 @@ public class AddFlashCard extends AppCompatActivity {
 
                 if (t_input.getText().length() != 0 && f_input.getText().length() != 0) {
 
-                    mTopic.add(t_input.getText().toString());
-                    mFact.add(f_input.getText().toString());
+                    mFlashCard.add(new FlashCard(t_input.getText().toString(), f_input.getText().toString()));
 
                     counter++;
 

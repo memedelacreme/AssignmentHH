@@ -15,53 +15,63 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private static final String TAG = "RecyclerViewAdapter";
 
-    private ArrayList<String> mTopic = new ArrayList<>();
-    private ArrayList<String> mFact = new ArrayList<>();
+    private ArrayList<FlashCard> mFlashCard = new ArrayList<>();
     private Context mContext;
 
-    public RecyclerViewAdapter(Context context, ArrayList<String> topic, ArrayList<String> fact) {
-        mTopic = topic;
-        mFact = fact;
+
+    public RecyclerViewAdapter(Context context, ArrayList<FlashCard> flashCard) {
+        mFlashCard = flashCard;
         mContext = context;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.flashcardlist, parent, false);
-        return new ViewHolder(view);
+        Context context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+
+        // Inflate the custom layout
+        View view = inflater.inflate(R.layout.flashcardlist, parent, false);
+
+        ViewHolder viewHolder = new ViewHolder(view);
+        return viewHolder;
+
     }
 
     //Bind data to individual list items
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(RecyclerViewAdapter.ViewHolder viewHolder, final int position) {
         Log.d(TAG, "onBindViewHolder: called.");
+        viewHolder.bindFlashCard(mFlashCard.get(position));
 
-        holder.topic.setText(mTopic.get(position));
-        holder.fact.setText(mFact.get(position));
-
-        holder.fact.setOnClickListener(new View.OnClickListener() {
+        viewHolder.fact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "onClick: clicked on an image: " + mFact.get(position));
-                Toast.makeText(mContext, mFact.get(position), Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onClick: Reveal fact: ");
+                Toast.makeText(mContext, mFlashCard.get(position).getFact(), Toast.LENGTH_LONG).show();
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return mFact.size();
+        return mFlashCard.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView topic;
         TextView fact;
+        private Context mContext;
 
         public ViewHolder(View itemView) {
             super(itemView);
             topic = itemView.findViewById(R.id.topic_view);
             fact = itemView.findViewById(R.id.fact_view);
+        }
+
+        public void bindFlashCard(FlashCard flashCard) {
+            topic.setText(flashCard.getTopic());
+            fact.setText(flashCard.getFact());
         }
     }
 }
