@@ -31,6 +31,9 @@ public class QuizMain extends AppCompatActivity {
         findViewById(R.id.row2).setOnDragListener(new QuizMain.MyDragListener());
         findViewById(R.id.row3).setOnDragListener(new QuizMain.MyDragListener());
 
+        //TODO decide if we want to use a single row for answers or have 3 rows like currently
+
+        //create a viewFlipper to switch the included layout between the different questions types
         final ViewFlipper myViewFlipper = (ViewFlipper) findViewById(R.id.myViewFlipper);
         Button submit = (Button) findViewById(R.id.submit);
         final TextView questionNumber = (TextView) findViewById(R.id.questionNumber);
@@ -40,9 +43,11 @@ public class QuizMain extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                //TODO take in the question and choose the appropriate .xml file to house the question.
 
                 //TODO create the way to save the selected answer (perhaps an Array)
 
+                //switch case currently set to cycle bewteen the 3 different files
                 switch (myViewFlipper.getDisplayedChild()) {
                     case 0:
                         myViewFlipper.setDisplayedChild(1);
@@ -56,12 +61,19 @@ public class QuizMain extends AppCompatActivity {
                 }
 
 
-                //TODO add aditional xml files to the ViewFlipper in activity_main.xml
-                //myViewFlipper.setDisplayedChild(1);
-
                 //increment the question number
-                questionNumber.setText("Q" + qNumber);
-                qNumber++;
+                if(qNumber <= 10) {
+                    questionNumber.setText("Q" + qNumber);
+                    qNumber++;
+                }
+                //end the quiz at 10
+                else {
+                    //TODO implement new end quiz activity here
+
+                    //reset the numbers for next time.
+                    questionNumber.setText("Q1");
+                    qNumber = 2;
+                }
             }
         };
 
