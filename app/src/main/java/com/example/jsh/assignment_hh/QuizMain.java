@@ -13,6 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import org.w3c.dom.Text;
+
 public class QuizMain extends AppCompatActivity {
 
     int qNumber = 2;
@@ -22,14 +24,26 @@ public class QuizMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_main);
 
-        findViewById(R.id.movable1).setOnTouchListener(new QuizMain.MyTouchListener());
-        findViewById(R.id.movable2).setOnTouchListener(new QuizMain.MyTouchListener());
-        findViewById(R.id.movable3).setOnTouchListener(new QuizMain.MyTouchListener());
-        findViewById(R.id.movable4).setOnTouchListener(new QuizMain.MyTouchListener());
+        TextView movable1 = (TextView) findViewById(R.id.movable1);
+        movable1.setOnTouchListener(new QuizMain.MyTouchListener());
+
+        TextView movable2 = (TextView) findViewById(R.id.movable2);
+        movable2.setOnTouchListener(new QuizMain.MyTouchListener());
+
+
+        TextView movable3 = (TextView)findViewById(R.id.movable3);
+        movable3.setOnTouchListener(new QuizMain.MyTouchListener());
+
+
+        TextView movable4 = (TextView)findViewById(R.id.movable4);
+        movable4.setOnTouchListener(new QuizMain.MyTouchListener());
+
+
         findViewById(R.id.holderRow).setOnDragListener(new QuizMain.MyDragListener());
         findViewById(R.id.row1).setOnDragListener(new QuizMain.MyDragListener());
         findViewById(R.id.row2).setOnDragListener(new QuizMain.MyDragListener());
         findViewById(R.id.row3).setOnDragListener(new QuizMain.MyDragListener());
+
 
         //TODO decide if we want to use a single row for answers or have 3 rows like currently
 
