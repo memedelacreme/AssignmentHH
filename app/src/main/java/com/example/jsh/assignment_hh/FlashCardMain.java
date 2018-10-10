@@ -34,6 +34,7 @@ public class FlashCardMain extends AppCompatActivity {
                 startActivity(addFCIntent);
             }
         });
+
     }
 
     //When this method is called, data is added to the array lists declared above (mTopic, mFact)
@@ -69,5 +70,11 @@ public class FlashCardMain extends AppCompatActivity {
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mFlashCard);
         recyclerView.setAdapter(adapter);
 
+    }
+
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
