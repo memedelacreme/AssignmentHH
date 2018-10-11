@@ -18,7 +18,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<FlashCard> mFlashCard = new ArrayList<>();
     private Context mContext;
 
-
     public RecyclerViewAdapter(Context context, ArrayList<FlashCard> flashCard) {
         mFlashCard = flashCard;
         mContext = context;
@@ -74,4 +73,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             fact.setText(flashCard.getFact());
         }
     }
+
+    public void delete(int position) {
+        mFlashCard.remove(position);
+        notifyItemRemoved(position);
+    }
+
 }

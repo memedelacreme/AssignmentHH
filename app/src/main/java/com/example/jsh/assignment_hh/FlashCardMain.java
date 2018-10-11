@@ -95,7 +95,7 @@ public class FlashCardMain extends AppCompatActivity {
     private void loadData(){
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson = new Gson();
-        String json = sharedPreferences.getString("task list", null);
+        String json = sharedPreferences.getString("Flash Cards", null);
         Type type = new TypeToken<ArrayList<FlashCard>>() {}.getType();
         mFlashCard = gson.fromJson(json, type);
 
