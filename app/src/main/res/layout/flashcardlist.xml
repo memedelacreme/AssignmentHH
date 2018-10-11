@@ -7,8 +7,10 @@
     >
 
     <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="250dp"
         android:layout_height="350dp"
+        android:longClickable="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="98dp"
@@ -21,6 +23,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
+
+            <CheckBox
+                android:id="@+id/deleteBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp" />
 
             <TextView
                 android:id="@+id/topic_view"
@@ -53,5 +64,7 @@
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
+
+
 
 </RelativeLayout>

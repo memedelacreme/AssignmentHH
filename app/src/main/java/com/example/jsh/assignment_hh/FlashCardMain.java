@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -22,16 +23,18 @@ import java.util.Set;
 public class FlashCardMain extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+    public boolean is_in_action_mode;
 
     public static int counter1 = 0;
 
     protected static ArrayList<FlashCard> mFlashCard = new ArrayList<>();
-    //Change into one ArrayList
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_card_main);
+
+        is_in_action_mode = false;
 
         if (counter1 == 0) {
             loadData();
@@ -47,6 +50,14 @@ public class FlashCardMain extends AppCompatActivity {
                 startActivity(addFCIntent);
             }
         });
+
+        FloatingActionButton deleteBtn = findViewById(R.id.deleteBtn);
+
+        if (!is_in_action_mode) {
+            deleteBtn.setVisibility(View.GONE);
+        } else {
+            deleteBtn.setVisibility(View.VISIBLE);
+        }
 
     }
 
@@ -69,7 +80,7 @@ public class FlashCardMain extends AppCompatActivity {
         startRecyclerView();
     }
 
-    private void startRecyclerView() {
+    public void startRecyclerView() {
         Log.d(TAG, "initRecyclerView: init recyclerView");
 
         RecyclerView recyclerView = findViewById(R.id.recyclerViewID);
@@ -82,7 +93,7 @@ public class FlashCardMain extends AppCompatActivity {
 
     }
 
-    public void saveData(){
+    private void saveData(){
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
@@ -115,4 +126,5 @@ public class FlashCardMain extends AppCompatActivity {
         super.onPause();
         saveData();
     }
+
 }
