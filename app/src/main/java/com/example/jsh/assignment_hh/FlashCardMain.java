@@ -140,8 +140,10 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
 
     @Override
     public boolean onLongClick(View view) {
-        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        vibrator.vibrate(100);
+        if (!is_in_action_mode) {
+            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(100);
+        }
         deleteBtn.setVisibility(View.VISIBLE);
         is_in_action_mode = true;
         adapter.notifyDataSetChanged();
