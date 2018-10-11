@@ -15,9 +15,7 @@
 
         <include layout="@layout/quiz_question_blanks" />
 
-        <include layout="@layout/quiz_question_dnd"/>
-
-
+        <include layout="@layout/quiz_question_dnd" />
     </ViewFlipper>
 
     <Button
