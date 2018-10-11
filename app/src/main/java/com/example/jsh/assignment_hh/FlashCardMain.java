@@ -20,10 +20,17 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class FlashCardMain extends AppCompatActivity {
+public class FlashCardMain extends AppCompatActivity implements View.OnLongClickListener {
 
     private static final String TAG = "MainActivity";
-    public boolean is_in_action_mode;
+    boolean is_in_action_mode = false;
+    RecyclerView recyclerView;
+    LinearLayoutManager layoutManager;
+    RecyclerViewAdapter adapter;
+    FloatingActionButton addFCButton;
+    FloatingActionButton deleteBtn;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     public static int counter1 = 0;
 
@@ -34,15 +41,13 @@ public class FlashCardMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_card_main);
 
-        is_in_action_mode = false;
-
         if (counter1 == 0) {
             loadData();
         }
 
         getFlashCards();
 
-        FloatingActionButton addFCButton = findViewById(R.id.addFlashCardActivity);
+        addFCButton = findViewById(R.id.addFlashCardActivity);
         addFCButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,14 +56,8 @@ public class FlashCardMain extends AppCompatActivity {
             }
         });
 
-        FloatingActionButton deleteBtn = findViewById(R.id.deleteBtn);
-
-        if (!is_in_action_mode) {
-            deleteBtn.setVisibility(View.GONE);
-        } else {
-            deleteBtn.setVisibility(View.VISIBLE);
-        }
-
+        deleteBtn = findViewById(R.id.deleteBtn);
+        deleteBtn.setVisibility(View.GONE);
     }
 
     //When this method is called, data is added to the array lists declared above (mTopic, mFact)
@@ -83,19 +82,19 @@ public class FlashCardMain extends AppCompatActivity {
     public void startRecyclerView() {
         Log.d(TAG, "initRecyclerView: init recyclerView");
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerViewID);
+        recyclerView = findViewById(R.id.recyclerViewID);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mFlashCard);
+        adapter = new RecyclerViewAdapter(this, mFlashCard);
         recyclerView.setAdapter(adapter);
 
     }
 
     private void saveData(){
-        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+        sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
         Gson gson = new Gson();
         String json = gson.toJson(mFlashCard);
         editor.putString("Flash Cards",json);
@@ -104,7 +103,7 @@ public class FlashCardMain extends AppCompatActivity {
     }
 
     private void loadData(){
-        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sharedPreferences.getString("Flash Cards", null);
         Type type = new TypeToken<ArrayList<FlashCard>>() {}.getType();
@@ -127,4 +126,12 @@ public class FlashCardMain extends AppCompatActivity {
         saveData();
     }
 
+    @Override
+    public boolean onLongClick(View view) {
+
+        deleteBtn.setVisibility(View.VISIBLE);
+        is_in_action_mode = true;
+        adapter.notifyDataSetChanged();
+        return true;
+    }
 }
