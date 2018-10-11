@@ -2,8 +2,8 @@ package com.example.jsh.assignment_hh;
 
 import android.content.ClipData;
 import android.graphics.drawable.Drawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -13,9 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
-import org.w3c.dom.Text;
-
 public class QuizMain extends AppCompatActivity {
+
+    //need to get the view state at when first starts - then can call this to reset the state.
 
     int qNumber = 2;
 
