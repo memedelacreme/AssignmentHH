@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -38,13 +39,27 @@ public class FlashCardAdapter extends RecyclerView.Adapter<FlashCardAdapter.View
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         Log.d(TAG, "onBindViewHolder: called.");
+        final FlashCard flashcard = adapterList.get(position);
         viewHolder.bindFlashCard(adapterList.get(position));
 
         if (!flashcardmain.is_in_action_mode) viewHolder.deleteBox.setVisibility(View.GONE);
         else {
             viewHolder.deleteBox.setVisibility(View.VISIBLE);
-            viewHolder.deleteBox.setChecked(false);
+            viewHolder.deleteBox.setSelected(false);
         }
+
+        viewHolder.deleteBox.setOnCheckedChangeListener(null);
+
+        //if true, your checkbox will be selected, else unselected
+        viewHolder.deleteBox.setSelected(flashcard.isSelected());
+
+        viewHolder.deleteBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isSelected) {
+                //set your object's last status
+                flashcard.setSelected(isSelected);
+            }
+        });
 
         viewHolder.fact.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +69,7 @@ public class FlashCardAdapter extends RecyclerView.Adapter<FlashCardAdapter.View
             }
         });
     }
+
 
     @Override
     public int getItemCount() {

@@ -2,20 +2,29 @@ package com.example.jsh.assignment_hh;
 
 public class FlashCard {
 
-    public String topic;
-    public String fact;
+    private String topic;
+    private String fact;
+    private boolean isSelected;
 
-    public FlashCard(String topic, String fact) {
+    FlashCard(String topic, String fact) {
         this.topic = topic;
         this.fact = fact;
     }
 
-    public String getTopic() {
+    String getTopic() {
         return topic;
     }
 
-    public String getFact(){
+    String getFact(){
         return fact;
+    }
+
+    boolean isSelected() {
+        return isSelected;
+    }
+
+    void setSelected(boolean selected) {
+        isSelected = selected;
     }
 
 }
