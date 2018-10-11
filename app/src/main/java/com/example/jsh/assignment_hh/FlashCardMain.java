@@ -1,8 +1,9 @@
 package com.example.jsh.assignment_hh;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Vibrator;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,15 +11,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+
 
 public class FlashCardMain extends AppCompatActivity implements View.OnLongClickListener {
 
@@ -26,15 +26,15 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
     boolean is_in_action_mode = false;
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
-    RecyclerViewAdapter adapter;
+    RecyclerView.Adapter adapter;
     FloatingActionButton addFCButton;
     FloatingActionButton deleteBtn;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    static int counter1 = 0;
 
-    public static int counter1 = 0;
-
-    protected static ArrayList<FlashCard> mFlashCard = new ArrayList<>();
+    static ArrayList<FlashCard> mFlashCard = new ArrayList<>();
+    ArrayList<FlashCard> selectedFlashCards = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,12 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
 
         deleteBtn = findViewById(R.id.deleteBtn);
         deleteBtn.setVisibility(View.GONE);
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteSelectedItems();
+            }
+        });
     }
 
     //When this method is called, data is added to the array lists declared above (mTopic, mFact)
@@ -87,7 +93,7 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
         layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new RecyclerViewAdapter(this, mFlashCard);
+        adapter = new FlashCardAdapter(this, mFlashCard);
         recyclerView.setAdapter(adapter);
 
     }
@@ -116,8 +122,14 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
 
     @Override
     public void onBackPressed(){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+
+        if(is_in_action_mode){
+            clearActionMode();
+            adapter.notifyDataSetChanged();
+        } else {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -128,10 +140,34 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
 
     @Override
     public boolean onLongClick(View view) {
-
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        vibrator.vibrate(100);
         deleteBtn.setVisibility(View.VISIBLE);
         is_in_action_mode = true;
         adapter.notifyDataSetChanged();
         return true;
     }
+
+    public void prepareSelection(View view, int position){
+
+        if (((CheckBox)view).isChecked()){
+            selectedFlashCards.add(mFlashCard.get(position));
+        } else {
+            selectedFlashCards.remove(mFlashCard.get(position));
+        }
+    }
+
+    public void deleteSelectedItems(){
+        Log.d(TAG, "Deleting cards");
+        FlashCardAdapter FCAdapter = (FlashCardAdapter) adapter;
+        FCAdapter.updateAdapter(selectedFlashCards);
+
+        clearActionMode();
+    }
+
+    public void clearActionMode(){
+        is_in_action_mode = false;
+        deleteBtn.setVisibility(View.GONE);
+    }
+
 }

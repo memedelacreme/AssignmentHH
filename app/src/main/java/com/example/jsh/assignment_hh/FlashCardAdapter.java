@@ -13,17 +13,16 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+public class FlashCardAdapter extends RecyclerView.Adapter<FlashCardAdapter.ViewHolder> {
 
-    private static final String TAG = "RecyclerViewAdapter";
-
-    private ArrayList<FlashCard> mFlashCard = new ArrayList<>();
+    private static final String TAG = "FlashCardAdapter";
+    private ArrayList<FlashCard> adapterList = new ArrayList<>();
     FlashCardMain flashcardmain;
     private Context mContext;
 
-    public RecyclerViewAdapter(Context context, ArrayList<FlashCard> flashCard) {
-        mFlashCard = flashCard;
-        mContext = context;
+    public FlashCardAdapter(Context context, ArrayList<FlashCard> adapterList) {
+        this.adapterList = adapterList;
+        this.mContext = context;
         flashcardmain = (FlashCardMain) context;
     }
 
@@ -37,9 +36,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     //Bind data to individual list items
     @Override
-    public void onBindViewHolder(RecyclerViewAdapter.ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         Log.d(TAG, "onBindViewHolder: called.");
-        viewHolder.bindFlashCard(mFlashCard.get(position));
+        viewHolder.bindFlashCard(adapterList.get(position));
 
         if (!flashcardmain.is_in_action_mode) viewHolder.deleteBox.setVisibility(View.GONE);
         else {
@@ -51,18 +50,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: Reveal fact: ");
-                Toast.makeText(mContext, mFlashCard.get(position).getFact(), Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext, adapterList.get(position).getFact(), Toast.LENGTH_LONG).show();
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return mFlashCard.size();
+        return adapterList.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
 
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+        FlashCardMain flashcardmain;
         TextView topic;
         TextView fact;
         CheckBox deleteBox;
@@ -71,18 +72,30 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public ViewHolder(View itemView, FlashCardMain flashcardmain) {
             super(itemView);
-
             topic = itemView.findViewById(R.id.topic_view);
             fact = itemView.findViewById(R.id.fact_view);
             deleteBox = itemView.findViewById(R.id.deleteBox);
             cardView = itemView.findViewById(R.id.cardView);
+            this.flashcardmain = flashcardmain;
 
             cardView.setOnLongClickListener(flashcardmain);
+            deleteBox.setOnClickListener(this); ///diff
         }
 
-        public void bindFlashCard(FlashCard flashCard) {
-            topic.setText(flashCard.getTopic());
-            fact.setText(flashCard.getFact());
+        public void bindFlashCard(FlashCard adapterList) {
+            topic.setText(adapterList.getTopic());
+            fact.setText(adapterList.getFact());
         }
+
+        public void onClick(View view) {
+            flashcardmain.prepareSelection(view, getAdapterPosition());
+        }
+    }
+
+    public void updateAdapter(ArrayList<FlashCard> list) {
+        for (FlashCard flashcard : list) {
+            adapterList.remove(flashcard);
+        }
+        notifyDataSetChanged();
     }
 }
