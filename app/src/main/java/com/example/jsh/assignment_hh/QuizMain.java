@@ -18,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import org.w3c.dom.Text;
+
 public class QuizMain extends AppCompatActivity {
 
 
@@ -33,22 +35,31 @@ public class QuizMain extends AppCompatActivity {
         setContentView(R.layout.activity_quiz_main);
 
         //instantiating the elements for DnD layout
-        TextView movable1 = (TextView) findViewById(R.id.movable1);
+        final TextView DnDExplain = (TextView) findViewById(R.id.DnDExplain);
+
+        final TextView movable1 = (TextView) findViewById(R.id.movable1);
         movable1.setOnTouchListener(new QuizMain.MyTouchListener());
 
-        TextView movable2 = (TextView) findViewById(R.id.movable2);
+        final TextView movable2 = (TextView) findViewById(R.id.movable2);
         movable2.setOnTouchListener(new QuizMain.MyTouchListener());
 
-        TextView movable3 = (TextView)findViewById(R.id.movable3);
+        final TextView movable3 = (TextView)findViewById(R.id.movable3);
         movable3.setOnTouchListener(new QuizMain.MyTouchListener());
 
-        TextView movable4 = (TextView)findViewById(R.id.movable4);
+        final TextView movable4 = (TextView)findViewById(R.id.movable4);
         movable4.setOnTouchListener(new QuizMain.MyTouchListener());
 
-        findViewById(R.id.holderRow).setOnDragListener(new QuizMain.MyDragListener());
-        findViewById(R.id.row1).setOnDragListener(new QuizMain.MyDragListener());
-        findViewById(R.id.row2).setOnDragListener(new QuizMain.MyDragListener());
-        findViewById(R.id.row3).setOnDragListener(new QuizMain.MyDragListener());
+        final LinearLayout holderRow = (LinearLayout) findViewById(R.id.holderRow);
+        holderRow.setOnDragListener(new QuizMain.MyDragListener());
+
+        final LinearLayout row1 = (LinearLayout) findViewById(R.id.row1);
+        row1.setOnDragListener(new QuizMain.MyDragListener());
+
+        final LinearLayout row2 = (LinearLayout) findViewById(R.id.row2);
+        row2.setOnDragListener(new QuizMain.MyDragListener());
+
+        final LinearLayout row3 = (LinearLayout) findViewById(R.id.row3);
+        row3.setOnDragListener(new QuizMain.MyDragListener());
 
         //instantiating the elements for the checkbox
         final RadioGroup radioGroup = (RadioGroup) findViewById(R.id.myRadioGroup);
@@ -66,7 +77,7 @@ public class QuizMain extends AppCompatActivity {
         Button submit = (Button) findViewById(R.id.submit);
         final TextView questionNumber = (TextView) findViewById(R.id.questionNumber);
 
-
+//TODO we are making them HAVE to have the correct answer in order to proceed - do on the else statement
         View.OnClickListener cycle = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,6 +95,8 @@ public class QuizMain extends AppCompatActivity {
                         } else {
                             Toast.makeText(QuizMain.this, "Wrong Answer for MCQ", Toast.LENGTH_SHORT).show();
                         }
+
+                        //reset the answers
                         radioGroup.clearCheck();
 
                         myViewFlipper.setDisplayedChild(1);
@@ -98,10 +111,25 @@ public class QuizMain extends AppCompatActivity {
                             Toast.makeText(QuizMain.this, "Wrong answer for the blank", Toast.LENGTH_SHORT).show();
                         }
 
+                        //clear answers
+                        answerText.setText("");
+
                         myViewFlipper.setDisplayedChild(2);
                         break;
                     case 2:
                         //TODO create check for DnD
+
+                        //clear answers
+                        holderRow.removeAllViews();
+                        row1.removeAllViews();
+                        row2.removeAllViews();
+                        row3.removeAllViews();
+
+                        holderRow.addView(DnDExplain);
+                        holderRow.addView(movable1);
+                        row1.addView(movable2);
+                        row2.addView(movable3);
+                        row3.addView(movable4);
 
                         myViewFlipper.setDisplayedChild(0);
                         break;
@@ -128,6 +156,7 @@ public class QuizMain extends AppCompatActivity {
 
     }
 
+    //TODO need to fix this code - view dissappear when they aren't dropped properly
     private final class MyTouchListener implements View.OnTouchListener {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
@@ -166,8 +195,12 @@ public class QuizMain extends AppCompatActivity {
                     // Dropped, reassign View to ViewGroup
                     View view = (View) event.getLocalState();
                     ViewGroup owner = (ViewGroup) view.getParent();
+                    Log.d(TAG, "onDrag: owner is " + owner.getId());
+
                     owner.removeView(view);
                     LinearLayout container = (LinearLayout) v;
+                    Log.d(TAG, "onDrag: container is " + container.getId());
+
                     container.addView(view);
                     view.setVisibility(View.VISIBLE);
                     break;

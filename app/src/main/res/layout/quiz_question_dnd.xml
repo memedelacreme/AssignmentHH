@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.LinearLayoutCompat
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="90dp"
         android:columnWidth="320dp"
-        android:columnCount="2"
         android:orientation="vertical"
-        android:rowCount="2"
         android:stretchMode="columnWidth"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -19,11 +18,15 @@
             android:id="@+id/holderRow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:background="@drawable/shape"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp">
 
             <TextView
+                android:id="@+id/DnDExplain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
@@ -45,7 +48,9 @@
             android:layout_height="wrap_content"
             android:background="@drawable/shape"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/holderRow"
+            tools:layout_editor_absoluteX="0dp">
 
             <TextView
                 android:id="@+id/movable2"
@@ -61,7 +66,9 @@
             android:layout_height="wrap_content"
             android:background="@drawable/shape"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/row1"
+            tools:layout_editor_absoluteX="0dp">
 
             <TextView
                 android:id="@+id/movable3"
@@ -77,7 +84,9 @@
             android:layout_height="wrap_content"
             android:background="@drawable/shape"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/row2"
+            tools:layout_editor_absoluteX="0dp">
 
             <TextView
                 android:id="@+id/movable4"
@@ -87,5 +96,46 @@
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
-    </android.support.v7.widget.LinearLayoutCompat>
+        <!--<LinearLayout-->
+            <!--android:id="@+id/answerRow"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<android.support.v7.widget.AppCompatSpinner-->
+                <!--android:id="@+id/dropDownList"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="20dp">-->
+
+            <!--</android.support.v7.widget.AppCompatSpinner>-->
+
+            <!--<android.support.v7.widget.AppCompatSpinner-->
+                <!--android:id="@+id/dropDownList2"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="20dp">-->
+
+            <!--</android.support.v7.widget.AppCompatSpinner>-->
+
+            <!--<android.support.v7.widget.AppCompatSpinner-->
+                <!--android:id="@+id/dropDownList3"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="20dp">-->
+
+            <!--</android.support.v7.widget.AppCompatSpinner>-->
+
+            <!--<android.support.v7.widget.AppCompatSpinner-->
+                <!--android:id="@+id/dropDownList4"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:layout_marginBottom="20dp">-->
+
+            <!--</android.support.v7.widget.AppCompatSpinner>-->
+
+        <!--</LinearLayout>-->
+
+    </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
