@@ -9,10 +9,12 @@
     <TextView
         android:id="@+id/question"
         android:layout_width="wrap_content"
-        android:layout_height="21dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="120dp"
         android:layout_marginEnd="8dp"
+        android:paddingHorizontal="8dp"
+        android:gravity="center"
         android:text="[to be replaced with the question]"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,9 +23,10 @@
 
     <RadioGroup
         android:id="@+id/myRadioGroup"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="120dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,7 +35,7 @@
 
         <RadioButton
             android:id="@+id/radioButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
@@ -41,7 +44,7 @@
 
         <RadioButton
             android:id="@+id/radioButton2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
@@ -52,7 +55,7 @@
 
         <RadioButton
             android:id="@+id/radioButton3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
@@ -60,7 +63,7 @@
 
         <RadioButton
             android:id="@+id/radioButton4"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
             android:text="Option D"

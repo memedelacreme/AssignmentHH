@@ -15,6 +15,4 @@ public class FBQuestion extends Question {
         super(question);
         this.FBanswer = FBanswer;
     }
-
-    FBQuestion FBQ1 = new FBQuestion("what is my name?", "Herman");
 }

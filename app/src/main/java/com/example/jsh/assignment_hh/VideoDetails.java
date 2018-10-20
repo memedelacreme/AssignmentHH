@@ -43,11 +43,11 @@ public class VideoDetails {
         return this.videoDescription;
     }
 
-    //TODO add the appropriate videos to the below list
+    //TODO add the appropriate videos to the below list and fix the sizing
     //array list containing the video and details
     private static ArrayList<VideoDetails> myVideos = new ArrayList<VideoDetails>() {{
-        add(new VideoDetails(1, "Terry Crews's Day", "7Tx4PXDW35g", "Filler description 1"));
-        add(new VideoDetails(2, "Brad makes miso paste", "DTErM4uuPdc", "Filler description 2"));
+        add(new VideoDetails(1, "Introduction to Polymorphism", "0xw06loTm1k", "This video is provides an introduction to the concepts of polymorphism within the context of Java. \nIt contains code examples to help explain the idea."));
+        add(new VideoDetails(2, "Inheritance in Java ", "9JpNY-XAseg", "This video explains the way Inheritance works in Java programming. \nIt contains code examples to help explain the idea"));
 
     }};
 

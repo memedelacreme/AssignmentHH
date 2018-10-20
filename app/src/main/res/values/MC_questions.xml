@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="MCQ1">Which method is used to call methods from a superclass?</string>
+    <string name="MCQ1a">.super()</string>
+    <string name="MCQ1b">.inheritSuper()</string>
+    <string name="MCQ1c">.inherit()</string>
+    <string name="MCQ1d">.getSuper()</string>
+    <integer name="MCQ1answer">1</integer>
+
+    <string name="MCQ2">OOP allows you derive new classes from existing ones. This refers to:</string>
+    <string name="MCQ2a">Abstraction</string>
+    <string name="MCQ2b">Polymorphism</string>
+    <string name="MCQ2c">Inheritance</string>
+    <string name="MCQ2d">Encapsulation</string>
+    <integer name="MCQ2answer">3</integer>
+
+    <string name="MCQ3">Which of the following statements regarding sub classes is true?</string>
+    <string name="MCQ3a">You can call methods from the super class using the prefix ".inherit"</string>
+    <string name="MCQ3b">You can call methods from a sub class by using the prefix ".sub"</string>
+    <string name="MCQ3c">You can call methods from the super class by using the prefix ".super"</string>
+    <string name="MCQ3d">You can call methods from a sub class by using the prefix ".get"</string>
+    <integer name="MCQ3answer">3</integer>
+
+    <string name="MCQ4">Given the "Student" is a sub class of the "User" class:</string>
+    <string name="MCQ4a">You can only instantiate objects of the "Student" class</string>
+    <string name="MCQ4b">You can instantiate objects of both the "Student" and "User" class</string>
+    <string name="MCQ4c">You can instantiate objects of the "User" class with a Student constructor</string>
+    <string name="MCQ4d">Both B and C</string>
+    <integer name="MCQ4answer">4</integer>
+
+    <string name="MCQ5">Which of the following is a keyword in Java?</string>
+    <string name="MCQ5a">instanceOf</string>
+    <string name="MCQ5b">instanceof</string>
+    <string name="MCQ5c">cast</string>
+    <string name="MCQ5d">casting</string>
+    <integer name="MCQ5answer">2</integer>
+
+    <string name="MCQ6">Which key word is used to link a sub class to its super class?</string>
+    <string name="MCQ6a">extends</string>
+    <string name="MCQ6b">implements</string>
+    <string name="MCQ6c">inherits</string>
+    <string name="MCQ6d">depends</string>
+    <integer name="MCQ6answer">1</integer>
+
+    <string name="MCQ7">Which of the following statements regarding super and sub classes is true?</string>
+    <string name="MCQ7a">A super and sub class will always have the same amount of information</string>
+    <string name="MCQ7b">A super class will always have more information than its sub class</string>
+    <string name="MCQ7c">A sub class will always have more information than its super class</string>
+    <string name="MCQ7d">None of the above</string>
+    <integer name="MCQ7answer">3</integer>
+
+    <string name="MCQ8">Which of the statements following is true for classes?</string>
+    <string name="MCQ8a">A no-arg constructor is provided by Java if no constructor is declared for a class</string>
+    <string name="MCQ8b">You must always explicitly declare a constructor</string>
+    <string name="MCQ8c">An arg constructor for a class is provided by default by Java</string>
+    <string name="MCQ8d">Both A and B</string>
+    <integer name="MCQ8answer">1</integer>
+
+    <string name="MCQ9">Polymorphism means that:</string>
+    <string name="MCQ9a">Variables can be cast into any other variable type</string>
+    <string name="MCQ9b">A variable of a sub type can refer to a super type object</string>
+    <string name="MCQ9c">A class can be derived from another existing class</string>
+    <string name="MCQ9d">A variable of a super type can refer to a sub type object</string>
+    <integer name="MCQ9answer">4</integer>
+
+    <string name="MCQ10">Abstract classes:</string>
+    <string name="MCQ10a">Can be instantiated</string>
+    <string name="MCQ10b">Can have non-abstract sub classes</string>
+    <string name="MCQ10c">Can only have abstract sub classes</string>
+    <string name="MCQ10d">Both A and C</string>
+    <integer name="MCQ10answer">2</integer>
+
+    <string name="MCQ11">Sub classes:</string>
+    <string name="MCQ11a">Can always be cast to a superclass</string>
+    <string name="MCQ11b">Will always contain details from the super class</string>
+    <string name="MCQ11c">Can inherit the methods from its super class</string>
+    <string name="MCQ11d">All of the above</string>
+    <integer name="MCQ11answer">4</integer>
+
+    <string name="MCQ12">You can have multiple methods with the same signature in the same class.</string>
+    <string name="MCQ12a">Yes, this is referred to as method overloading</string>
+    <string name="MCQ12b">Yes, this is referred to as method overriding</string>
+    <string name="MCQ12c">Yes, as long you are aware which method does what</string>
+    <string name="MCQ12d">No you cannot, they must be in separate classes</string>
+    <integer name="MCQ12answer">4</integer>
+
+
+</resources>

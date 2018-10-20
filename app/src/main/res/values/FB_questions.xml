@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="FBQ1">The ability from subclasses to utilise methods and attributes from their superclass refers to which principle in OOP?</string>
+    <string name="FBQ1A">Inheritance</string>
+
+    <string name="FBQ2">What does OOP stand for?</string>
+    <string name="FBQ2A">Object orientated programming</string>
+
+    <string name="FBQ3">Abstract classes can be used through which keyword in Java? (case sensitive)</string>
+    <string name="FBQ3A">implements</string>
+
+    <string name="FBQ4">Given the super and sub class User and Student, how would you instantiate an object User with the Student constructor? \n (use variable name "variable"</string>
+    <string name="FBQ4A">User variable = new Student()</string>
+
+    <string name="FBQ5">Which keyword is used to denote an abstract class in Java? (case sensitive)</string>
+    <string name="FBQ5A">abstract</string>
+
+    <string name="FBQ6">____________ refers to the process of restricting access to data fields of a class using keyword "private"</string>
+    <string name="FBQ6A">Encapsulation</string>
+
+    <string name="FBQ7">Method ____________ refers to the defining multiple methods with the same name in a class.</string>
+    <string name="FBQ7A">Overloading</string>
+
+    <string name="FBQ8">A ____________ is a class that is dervide from another class.</string>
+    <string name="FBQ8A">Sub class</string>
+
+    <string name="FBQ9">An ____________ is an instance of a class.</string>
+    <string name="FBQ9A">Object</string>
+</resources>

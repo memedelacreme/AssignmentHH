@@ -40,7 +40,7 @@ public class MCQuestion extends Question {
     }
 
     public int getMCQAnswer() {
-        return MCQAnswer;
+        return this.MCQAnswer;
     }
 
     public void setMCQAnswer(int MCQAnswer) {
@@ -53,6 +53,7 @@ public class MCQuestion extends Question {
         this.OptionB = optionB;
         this.OptionC = optionC;
         this.OptionD = optionD;
+        this.MCQAnswer = MCQAnswer;
 
     }
 }
