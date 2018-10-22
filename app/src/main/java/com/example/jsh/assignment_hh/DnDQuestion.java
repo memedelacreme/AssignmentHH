@@ -50,15 +50,13 @@ public class DnDQuestion extends Question {
         return correctOrder;
     }
 
-    public DnDQuestion(String question, String dnDOptionA, String dnDOptionB, String dnDOptionC, String dnDOptionD, int a, int b, int c, int d){
+    public DnDQuestion(String question, String dnDOptionA, String dnDOptionB, String dnDOptionC, String dnDOptionD, int[] array) {
         super(question);
         this.DnDOptionA = dnDOptionA;
         this.DnDOptionB = dnDOptionB;
         this.DnDOptionC = dnDOptionC;
         this.DnDOptionD = dnDOptionD;
-        this.correctOrder[0] = a;
-        this.correctOrder[1] = b;
-        this.correctOrder[2] = c;
-        this.correctOrder[3] = d;
+        this.correctOrder = array;
+
     }
 }

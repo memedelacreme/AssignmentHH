@@ -41,7 +41,7 @@ public class VideoAdapter extends ArrayAdapter<VideoDetails> {
 
         //set the image using picasso
         String url = videoDetails.getVideoUrl();
-        String imageUrl = "http://img.youtube.com/vi/" + url + "/0.jpg";
+        String imageUrl = "https://img.youtube.com/vi/" + url + "/hqdefault.jpg";
         Picasso.with(getContext()).load(imageUrl).into(videoThumbnail);
 
         //set the title
