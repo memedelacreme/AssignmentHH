@@ -47,7 +47,8 @@ public class VideoDetails {
     //array list containing the video and details
     private static ArrayList<VideoDetails> myVideos = new ArrayList<VideoDetails>() {{
         add(new VideoDetails(1, "Introduction to Polymorphism", "0xw06loTm1k", "This video is provides an introduction to the concepts of polymorphism within the context of Java. \nIt contains code examples to help explain the idea."));
-        add(new VideoDetails(2, "Inheritance in Java ", "9JpNY-XAseg", "This video explains the way Inheritance works in Java programming. \nIt contains code examples to help explain the idea"));
+        add(new VideoDetails(2, "Inheritance in Java", "9JpNY-XAseg", "This video explains the way Inheritance works in Java programming. \nIt contains code examples to help explain the idea"));
+        add(new VideoDetails(3, "What is Object Orientated Programming?", "YcbcfkLzgvs", "This video explains the role of OOP in Java and how it works to develop more effective code"));
 
     }};
 
