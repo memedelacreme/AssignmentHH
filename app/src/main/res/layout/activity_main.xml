@@ -12,11 +12,9 @@
         android:id="@+id/WhaleCover"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:cropToPadding="false"
-        app:layout_constraintVertical_weight="@integer/MCQ2answer"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/whale" />
+        app:srcCompat="@drawable/whale_full" />
 
     holds the two horizontal layouts
 
