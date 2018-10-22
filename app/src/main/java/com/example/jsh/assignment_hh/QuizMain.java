@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Layout;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.MotionEvent;
@@ -53,6 +54,10 @@ public class QuizMain extends AppCompatActivity {
     TextView movable2;
     TextView movable3;
     TextView movable4;
+    LinearLayout holderRow;
+    LinearLayout row1;
+    LinearLayout row2;
+    LinearLayout row3;
 
     //create a viewFlipper to switch the included layout between the different questions types
     Button submit;
@@ -88,17 +93,11 @@ public class QuizMain extends AppCompatActivity {
         movable4 = (TextView) findViewById(R.id.movable4);
         movable4.setOnTouchListener(new QuizMain.MyTouchListener());
 
-        final LinearLayout holderRow = (LinearLayout) findViewById(R.id.holderRow);
-        holderRow.setOnDragListener(new QuizMain.MyDragListener());
+        holderRow = (LinearLayout) findViewById(R.id.holderRow);
+//        holderRow.setOnDragListener(new QuizMain.MyDragListener());
 
-        final LinearLayout row1 = (LinearLayout) findViewById(R.id.row1);
+        row1 = (LinearLayout) findViewById(R.id.row1);
         row1.setOnDragListener(new QuizMain.MyDragListener());
-
-        final LinearLayout row2 = (LinearLayout) findViewById(R.id.row2);
-        row2.setOnDragListener(new QuizMain.MyDragListener());
-
-        final LinearLayout row3 = (LinearLayout) findViewById(R.id.row3);
-        row3.setOnDragListener(new QuizMain.MyDragListener());
 
         //instantiating the elements for the checkbox
         MCQuestion = (TextView) findViewById(R.id.question);
@@ -171,7 +170,6 @@ public class QuizMain extends AppCompatActivity {
 
         }};
         Log.d(TAG, "onCreate: You have quiz array has been created successfully, size: " + quizQuestions.size());
-        //TODO insert a for loop here for the number of questions (10)
 
         //random number generator to determine first question
         currentQuestion = quizQuestions.get(22);
@@ -282,14 +280,14 @@ public class QuizMain extends AppCompatActivity {
                         //clear answers
                         holderRow.removeAllViews();
                         row1.removeAllViews();
-                        row2.removeAllViews();
-                        row3.removeAllViews();
 
                         holderRow.addView(DnDExplain);
-                        holderRow.addView(movable1);
+                        row1.addView(movable1);
                         row1.addView(movable2);
-                        row2.addView(movable3);
-                        row3.addView(movable4);
+                        row1.addView(movable3);
+                        row1.addView(movable4);
+
+                        //implement incrementOrEnd when correct - should populate the right answers
 
                         myViewFlipper.setDisplayedChild(0);
                         break;
@@ -304,14 +302,21 @@ public class QuizMain extends AppCompatActivity {
                 //clear answers
                 holderRow.removeAllViews();
                 row1.removeAllViews();
-                row2.removeAllViews();
-                row3.removeAllViews();
 
+                //add the views back in to "reset it"
                 holderRow.addView(DnDExplain);
-                holderRow.addView(movable1);
+                row1.addView(movable1);
+                movable1.setVisibility(View.VISIBLE);
+
                 row1.addView(movable2);
-                row2.addView(movable3);
-                row3.addView(movable4);
+                movable2.setVisibility(View.VISIBLE);
+
+                row1.addView(movable3);
+                movable3.setVisibility(View.VISIBLE);
+
+                row1.addView(movable4);
+                movable4.setVisibility(View.VISIBLE);
+
             }
         };
 
@@ -322,7 +327,6 @@ public class QuizMain extends AppCompatActivity {
 
     }
 
-    //TODO need to fix this code - view disappear when they aren't dropped properly - may solve with a reset button
     private final class MyTouchListener implements View.OnTouchListener {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
@@ -363,11 +367,17 @@ public class QuizMain extends AppCompatActivity {
                     ViewGroup owner = (ViewGroup) view.getParent();
                     Log.d(TAG, "onDrag: owner is " + owner.getId());
 
+                    //remove orignial textview
                     owner.removeView(view);
+
+                    //create a layout reference for the drop destination
                     LinearLayout container = (LinearLayout) v;
                     Log.d(TAG, "onDrag: container is " + container.getId());
 
+                    //add the view to the container
                     container.addView(view);
+
+                    //set visible
                     view.setVisibility(View.VISIBLE);
                     break;
                 case DragEvent.ACTION_DRAG_ENDED:
@@ -409,6 +419,8 @@ public class QuizMain extends AppCompatActivity {
             questionNumber.setText("Q1");
             qNumber = 2;
 
+            //TODO insert a for loop here for the number of questions (10)
+
             //TODO implement new end quiz activity here
             //send score to new thing before resetting
             //remove all previous pages from the backstack - should move straight to home page
@@ -434,11 +446,23 @@ public class QuizMain extends AppCompatActivity {
             myViewFlipper.setDisplayedChild(1);
 
         } else if (currentQuestion instanceof DnDQuestion) {
+
+            holderRow.removeAllViews();
+            row1.removeAllViews();
+//            row2.removeAllViews();
+//            row3.removeAllViews();
+
             DnDExplain.setText(((DnDQuestion) currentQuestion).getQuestion());
             movable1.setText(((DnDQuestion) currentQuestion).getDnDOptionA());
             movable2.setText(((DnDQuestion) currentQuestion).getDnDOptionB());
             movable3.setText(((DnDQuestion) currentQuestion).getDnDOptionC());
             movable4.setText(((DnDQuestion) currentQuestion).getDnDOptionD());
+
+            holderRow.addView(DnDExplain);
+            row1.addView(movable1);
+            row1.addView(movable2);
+            row1.addView(movable3);
+            row1.addView(movable4);
 
             myViewFlipper.setDisplayedChild(2);
         }
