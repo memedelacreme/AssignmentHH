@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/SplashColor"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="30dp"
+        android:text="Videos"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="259dp"
+        android:layout_height="213dp"
+        android:layout_gravity="center"
+        android:paddingBottom="20dp"
+        android:src="@drawable/video" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="We get it! Reading can be tiring - so we've prepared a playlist of our favourite object-oriented programming videos that will help you learn effortlessly"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"/>
+
+</LinearLayout>

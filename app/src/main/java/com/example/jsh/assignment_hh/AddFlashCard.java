@@ -39,10 +39,6 @@ public class AddFlashCard extends AppCompatActivity {
                     Intent FCMIntent = new Intent(AddFlashCard.this, FlashCardMain.class);
                     startActivity(FCMIntent);
                 }
-                //TODO: When the cards are added, it goes back to the AddFlashCard activity screen and runs the loadData method --> overrides changes
-                //TODO: Got flashcards working, but they don't save when app closes... Need to fix that
-                //TODO: Create a home button? When adding cards using the Android back button messes things up a bit
-                //TODO: Delete card button --> Maybe do something like Long hold --> X button appears on top corner of card etc.
                 //TODO: Edit cards
             }
         });

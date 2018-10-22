@@ -19,6 +19,15 @@ public class FlashCard {
         return fact;
     }
 
+    public void setTopic(String topic){
+        this.topic = topic;
+    }
+
+    public void setFact(String fact){
+        this.fact = fact;
+    }
+
+
     boolean isSelected() {
         return isSelected;
     }

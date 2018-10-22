@@ -1,6 +1,7 @@
 package com.example.jsh.assignment_hh;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,11 +12,17 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+    private Boolean exit = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (getIntent().getBooleanExtra("EXIT", false)) {
+            finish();
+        }
 
         TextView Content = (TextView) findViewById(R.id.content);
         TextView Flashcards = (TextView) findViewById(R.id.flashcards);
@@ -67,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
 
                 if (intent != null){
                     try {
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent);
                         Log.d(TAG, "onClick: Activity started");
 
@@ -78,14 +88,31 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        //todo change these from "test" to "mainMenu" when readu.
+        //todo change these from "test" to "mainMenu" when ready.
         Content.setOnClickListener(mainMenu);
         Flashcards.setOnClickListener(mainMenu);
         Quiz.setOnClickListener(mainMenu);
         additionalResources.setOnClickListener(mainMenu);
     }
 
+    @Override
+    public void onBackPressed() {
+        if (exit) {
+            finish(); // finish activity
+        } else {
+            Toast.makeText(this, "Press Back again to Exit.",
+                    Toast.LENGTH_SHORT).show();
+            exit = true;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    exit = false;
+                }
+            }, 3 * 1000);
 
+        }
+
+    }
 
 
 }
