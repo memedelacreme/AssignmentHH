@@ -29,7 +29,7 @@
             android:id="@+id/topRow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,8 +39,11 @@
                 android:id="@+id/flashcards"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="200dp"
-                android:layout_margin="10dp"
+                android:layout_height="220dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground">
 
@@ -85,8 +88,12 @@
                 android:id="@+id/notes"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="200dp"
-                android:layout_margin="10dp"
+                android:layout_height="220dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground">
 
@@ -142,8 +149,10 @@
                 android:id="@+id/quiz"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="200dp"
-                android:layout_margin="10dp"
+                android:layout_height="220dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground">
 
@@ -187,8 +196,10 @@
                 android:id="@+id/videos"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="200dp"
-                android:layout_margin="10dp"
+                android:layout_height="220dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground">
 
