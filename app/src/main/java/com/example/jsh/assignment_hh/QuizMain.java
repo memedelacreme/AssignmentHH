@@ -57,6 +57,9 @@ public class QuizMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_main);
 
+        score = 0;
+        Log.d(TAG, "onCreate: Score has been reset to: " + score);
+
         myViewFlipper = (ViewFlipper) findViewById(R.id.myViewFlipper);
         submit = (Button) findViewById(R.id.submit);
         questionNumber = (TextView) findViewById(R.id.questionNumber);
