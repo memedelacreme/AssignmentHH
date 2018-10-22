@@ -2,6 +2,7 @@ package com.example.jsh.assignment_hh;
 
 import android.content.ClipData;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -47,8 +48,15 @@ public class QuizMain extends AppCompatActivity {
 
     TextView questionText;
 
+    TextView DnDExplain;
+    TextView movable1;
+    TextView movable2;
+    TextView movable3;
+    TextView movable4;
+
     //create a viewFlipper to switch the included layout between the different questions types
     Button submit;
+    Button resetBtn;
     ViewFlipper myViewFlipper;
     TextView questionNumber;
 
@@ -62,21 +70,22 @@ public class QuizMain extends AppCompatActivity {
 
         myViewFlipper = (ViewFlipper) findViewById(R.id.myViewFlipper);
         submit = (Button) findViewById(R.id.submit);
+        resetBtn = (Button) findViewById(R.id.reset);
         questionNumber = (TextView) findViewById(R.id.questionNumber);
 
         //instantiating the elements for DnD layout
-        final TextView DnDExplain = (TextView) findViewById(R.id.DnDExplain);
+        DnDExplain = (TextView) findViewById(R.id.DnDExplain);
 
-        final TextView movable1 = (TextView) findViewById(R.id.movable1);
+        movable1 = (TextView) findViewById(R.id.movable1);
         movable1.setOnTouchListener(new QuizMain.MyTouchListener());
 
-        final TextView movable2 = (TextView) findViewById(R.id.movable2);
+        movable2 = (TextView) findViewById(R.id.movable2);
         movable2.setOnTouchListener(new QuizMain.MyTouchListener());
 
-        final TextView movable3 = (TextView) findViewById(R.id.movable3);
+        movable3 = (TextView) findViewById(R.id.movable3);
         movable3.setOnTouchListener(new QuizMain.MyTouchListener());
 
-        final TextView movable4 = (TextView) findViewById(R.id.movable4);
+        movable4 = (TextView) findViewById(R.id.movable4);
         movable4.setOnTouchListener(new QuizMain.MyTouchListener());
 
         final LinearLayout holderRow = (LinearLayout) findViewById(R.id.holderRow);
@@ -108,6 +117,8 @@ public class QuizMain extends AppCompatActivity {
         //layout setup complete
 
         //create quiz questions
+        final Resources r = getResources();
+
         quizQuestions = new ArrayList<Question>() {{
             /*01*/
             add(new FBQuestion(getString(R.string.FBQ1), getString(R.string.FBQ1A)));
@@ -152,7 +163,9 @@ public class QuizMain extends AppCompatActivity {
             /*21*/
             add(new MCQuestion(getString(R.string.MCQ12), getString(R.string.MCQ12a), getString(R.string.MCQ12b), getString(R.string.MCQ12c), getString(R.string.MCQ12d), getResources().getInteger(R.integer.MCQ12answer)));
             /*22*/
+            add(new DnDQuestion(getString(R.string.DnDQ1), getString(R.string.DnDQ1_1), getString(R.string.DnDQ1_2), getString(R.string.DnDQ1_3), getString(R.string.DnDQ1_4), r.getIntArray(R.array.DNDQ1answer)));
             /*23*/
+            add(new DnDQuestion(getString(R.string.DnDQ2), getString(R.string.DnDQ2_1), getString(R.string.DnDQ2_2), getString(R.string.DnDQ2_3), getString(R.string.DnDQ2_4), r.getIntArray(R.array.DNDQ2answer)));
             /*24*/
             /*25*/
 
@@ -161,7 +174,9 @@ public class QuizMain extends AppCompatActivity {
         //TODO insert a for loop here for the number of questions (10)
 
         //random number generator to determine first question
-        currentQuestion = quizQuestions.get(randomNumber());
+        currentQuestion = quizQuestions.get(22);
+        //TODO uncomment out
+//        currentQuestion = quizQuestions.get(randomNumber());
 
         //Set the display
         setDisplay();
@@ -282,7 +297,28 @@ public class QuizMain extends AppCompatActivity {
             }
         };
 
+        //method to reset the DnD drop views
+        View.OnClickListener reset = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //clear answers
+                holderRow.removeAllViews();
+                row1.removeAllViews();
+                row2.removeAllViews();
+                row3.removeAllViews();
+
+                holderRow.addView(DnDExplain);
+                holderRow.addView(movable1);
+                row1.addView(movable2);
+                row2.addView(movable3);
+                row3.addView(movable4);
+            }
+        };
+
+        //set button listeners
         submit.setOnClickListener(cycle);
+        resetBtn.setOnClickListener(reset);
+
 
     }
 
@@ -345,8 +381,8 @@ public class QuizMain extends AppCompatActivity {
 
     //this method generates a random number to determine which question is asked - overlaps have been allowed
     public int randomNumber() {
-        //TODO change the max to 31 when the rest of questions have been implemented
-        int rn = (int) (Math.random() * (0 - 21));
+        //TODO change the max to 25 when the rest of questions have been implemented
+        int rn = (int) (Math.random() * (0 - 23));
         Log.d(TAG, "randomNumber: Number generated was " + abs(rn));
         return abs(rn);
     }
@@ -384,22 +420,31 @@ public class QuizMain extends AppCompatActivity {
     public void setDisplay() {
         //check which type of question it is
         if (currentQuestion instanceof MCQuestion) {
-            myViewFlipper.setDisplayedChild(0);
             MCQuestion.setText(currentQuestion.getQuestion());
             answerA.setText(((MCQuestion) currentQuestion).getOptionA());
             answerB.setText(((MCQuestion) currentQuestion).getOptionB());
             answerC.setText(((MCQuestion) currentQuestion).getOptionC());
             answerD.setText(((MCQuestion) currentQuestion).getOptionD());
 
+            myViewFlipper.setDisplayedChild(0);
+
         } else if (currentQuestion instanceof FBQuestion) {
-            myViewFlipper.setDisplayedChild(1);
             questionText.setText(currentQuestion.getQuestion());
 
+            myViewFlipper.setDisplayedChild(1);
+
         } else if (currentQuestion instanceof DnDQuestion) {
+            DnDExplain.setText(((DnDQuestion) currentQuestion).getQuestion());
+            movable1.setText(((DnDQuestion) currentQuestion).getDnDOptionA());
+            movable2.setText(((DnDQuestion) currentQuestion).getDnDOptionB());
+            movable3.setText(((DnDQuestion) currentQuestion).getDnDOptionC());
+            movable4.setText(((DnDQuestion) currentQuestion).getDnDOptionD());
+
             myViewFlipper.setDisplayedChild(2);
         }
     }
 
+    //TODO implement exit warning
     public void onBackPressed() {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
