@@ -96,6 +96,7 @@ public class FlashCardAdapter extends RecyclerView.Adapter<FlashCardAdapter.View
                 Log.d(TAG, "onClick: edit fact: ");
                 is_in_editTopic_mode = false;
                 is_in_editFact_mode = true;
+                adapterList.get(position).setTopic(edit_fact.getText().toString());
                 notifyDataSetChanged();
             }
         });
