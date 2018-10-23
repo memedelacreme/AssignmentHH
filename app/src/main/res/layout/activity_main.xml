@@ -58,6 +58,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:fontFamily="@font/montserrat_bold"
                         android:text="Flash Cards"
                         android:textStyle="bold" />
 
@@ -70,6 +71,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
                         android:gravity="center"
                         android:padding="5dp"
                         android:text="Memory joggers to consolidate knowledge"
@@ -108,6 +110,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:fontFamily="@font/montserrat_bold"
                         android:text="Notes"
                         android:textStyle="bold" />
 
@@ -120,6 +123,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
                         android:gravity="center"
                         android:padding="5dp"
                         android:text="Content covering the 4 fundamentals of OOP"
@@ -167,6 +171,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:fontFamily="@font/montserrat_bold"
                         android:text="Quiz"
                         android:textStyle="bold" />
 
@@ -179,6 +184,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
                         android:gravity="center"
                         android:padding="5dp"
                         android:text="Exam-style questions to test your knowledge"
@@ -214,6 +220,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:fontFamily="@font/montserrat_bold"
                         android:text="Videos"
                         android:textStyle="bold" />
 
@@ -226,6 +233,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
                         android:gravity="center"
                         android:padding="5dp"
                         android:text="Playlist of useful videos for additional study"
