@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Layout;
 import android.util.Log;
@@ -62,6 +63,7 @@ public class QuizMain extends AppCompatActivity {
     //create a viewFlipper to switch the included layout between the different questions types
     Button submit;
     Button resetBtn;
+    Button skipBtn;
     ViewFlipper myViewFlipper;
     TextView questionNumber;
 
@@ -76,6 +78,7 @@ public class QuizMain extends AppCompatActivity {
         myViewFlipper = (ViewFlipper) findViewById(R.id.myViewFlipper);
         submit = (Button) findViewById(R.id.submit);
         resetBtn = (Button) findViewById(R.id.reset);
+        skipBtn = (Button) findViewById(R.id.skip);
         questionNumber = (TextView) findViewById(R.id.questionNumber);
 
         //instantiating the elements for DnD layout
@@ -277,7 +280,6 @@ public class QuizMain extends AppCompatActivity {
                         break;
 
                     case 2://i.e. the question is a DnD Question
-                        //TODO create check for DnD
                         DnDQuestion thisquesiton3 = (DnDQuestion) currentQuestion;
                         int[] answerArray = thisquesiton3.getCorrectOrder();
                         TextView[] TVArray = new TextView[]{movable1, movable2, movable3, movable4};
@@ -335,9 +337,18 @@ public class QuizMain extends AppCompatActivity {
             }
         };
 
+        View.OnClickListener skip = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firstAttempt = false;
+                incrementOrEnd();
+            }
+        };
+
         //set button listeners
         submit.setOnClickListener(cycle);
         resetBtn.setOnClickListener(reset);
+        skipBtn.setOnClickListener(skip);
 
 
     }
@@ -419,7 +430,7 @@ public class QuizMain extends AppCompatActivity {
             questionNumber.setText("Q" + qNumber);
             qNumber++;
 
-            //TODO implement a boolean for is this is the first attempt or not
+            //implement a boolean for is this is the first attempt or not to determine if they get a mark or not
             if (firstAttempt == true) {
                 score++;
                 Log.d(TAG, "incrementOrEnd: The users score is currently " + score);
@@ -435,24 +446,16 @@ public class QuizMain extends AppCompatActivity {
             if (firstAttempt == true) {
                 score++;
             }
-
             Log.d(TAG, "incrementOrEnd: The users score is currently " + score);
 
-            //TODO implement new end quiz activity here
+            //new activity is implemented
+            Log.d(TAG, "incrementOrEnd: Quiz completed moving to score page");
             Intent finishIntent = new Intent(this, QuizScore.class);
+            //send score to new thing before resetting
             finishIntent.putExtra("quizScore", score);
 
             startActivity(finishIntent);
-            //send score to new thing before resetting
-
-            //remove all previous pages from the backstack - should move straight to home page
-
-            //reset the numbers for next time.
-            questionNumber.setText("Q1");
-            qNumber = 2;
-
-
-
+            Log.d(TAG, "incrementOrEnd: Starting intent " + finishIntent);
         }
     }
 
@@ -505,12 +508,31 @@ public class QuizMain extends AppCompatActivity {
         }
     }
 
-    //TODO implement exit warning
+    //make sure they want to leave by implementing a double-click to exit function
+
+    boolean leaveCheck = false;
+
     public void onBackPressed() {
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(intent);
+
+        //if checked then it will leave and exit to home screen
+        if (leaveCheck == true) {
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent);
+        } else { //otherwise, a 1.5 sec window is given to leave
+            Toast.makeText(getApplicationContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+            leaveCheck = true;
+            //delayed handler takes sets the boolean back to false if nothing is clicked within 1.5 secs
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    leaveCheck = false;
+                }
+            }, 15 * 100);
+        }
+
+
     }
 }
