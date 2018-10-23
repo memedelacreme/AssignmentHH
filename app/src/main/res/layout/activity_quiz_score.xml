@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".QuizScore">
 
+    <ImageView
+        android:id="@+id/scoreBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/whale_happi_2"
+        android:alpha="0.2" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,32 +25,37 @@
 
         <TextView
             android:id="@+id/greeting"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="bottom"
-            android:text="TextView"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:padding="16dp"
+            android:background="#8FFF"
+            android:gravity="center"
+            android:text="greeting"
             android:textAlignment="center"
             android:textSize="24sp"
+            android:textStyle="bold"
             tools:layout_editor_absoluteX="162dp" />
 
         <TextView
             android:id="@+id/score"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1"
-            android:text="TextView"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="#8FFF"
+            android:text="score"
             android:textAlignment="center"
+            android:gravity="center"
             android:textSize="30sp"
+            android:textStyle="bold"
             tools:layout_editor_absoluteX="162dp" />
 
         <TextView
             android:id="@+id/info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:gravity="top"
+            android:gravity="center"
+            android:layout_marginTop="60dp"
             android:text="Note that your score only increases if you get the answer correct on your first try!"
             android:textAlignment="center"
             android:textAllCaps="false"
@@ -53,4 +64,5 @@
             tools:layout_editor_absoluteX="162dp" />
 
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
