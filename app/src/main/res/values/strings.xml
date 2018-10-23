@@ -1,11 +1,21 @@
 <resources>
     <string name="app_name">StudyBud</string>
     <string name="title_activity_additional__resources__menu">Additional_Resources_Menu</string>
+    <string name="onboading_activity">OnboardActvity</string>
     <string name="menu_flashcards">Flashcards</string>
     <string name="menu_content">Content</string>
     <string name="menu_quiz">Quizzes</string>
     <string name="menu_additional_resources">Additional \n Resources</string>
     <string name="title_activity_maps">Map</string>
+
+    <string name="introText">"INFS1609 can be daunting for students with little coding experience - we get it, we've been there. In fact, that's why we made this app! Ace this course with the following tools..."</string>
+    <string name="onboardflash"> "DID YOU KNOW: active recall is one of the practices through which our brains learn most effectively - So create your own and get revising!"</string>
+
+    <string name="onboardnotes">"Writing your own notes is always great for memory retention, but in case you're short on time, we've provided some of our own"</string>
+    <string name="onboardquiz">"Feeling confident? Not sure what you don't know? Test your knowledge by attempting past exam questions in multiple formats"</string>
+    <string name="onboardvideo">"Reading can be tiring - why not mix it up with some visual learning? We've prepared a playlist of our favourite object-oriented programming videos that will help you learn effortlessly"</string>
+
+
 
     <string name="youtube_video_1">YcbcfkLzgvs</string>
     <string name="youtube_video_2">KSwnFzlPEuY</string>

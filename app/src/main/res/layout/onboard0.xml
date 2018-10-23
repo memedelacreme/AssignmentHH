@@ -1,36 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/SplashColor"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:background="@drawable/whalegreen">
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/textView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="108dp"
         android:paddingBottom="30dp"
         android:text="Welcome to StudyBud!"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="30sp"
-        android:textStyle="bold" />
-
-    <ImageView
-        android:layout_width="278dp"
-        android:layout_height="213dp"
-        android:layout_gravity="center"
-        android:paddingBottom="20dp"
-        android:src="@drawable/logo" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="INFS1609: Fundamentals of Business Programming can be daunting for students who are new to coding - we get it, we've been there. In fact, that's why we made this app! Ace this course with these tools..."
+        android:id="@+id/textView2"
+        android:layout_width="327dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="56dp"
+        android:text="@string/introText"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="20sp" />
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

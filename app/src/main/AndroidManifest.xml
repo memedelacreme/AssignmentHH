@@ -18,18 +18,29 @@
         android:roundIcon="@drawable/logoicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity">
+
+        <activity android:name=".SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".Additional_Resources_Menu"
             android:label="@string/title_activity_additional__resources__menu"
             android:theme="@style/AppTheme" />
-        <activity android:name=".OnboardActivity" />
+
+        <activity android:name=".OnboardActivity"
+            android:label="@string/onboading_activity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".MainActivity" />
         <activity android:name=".FlashCardMain" />
         <activity android:name=".AddFlashCard" />
