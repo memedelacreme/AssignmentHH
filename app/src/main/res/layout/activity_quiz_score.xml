@@ -43,7 +43,7 @@
             android:id="@+id/info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="40dp"
             android:gravity="top"
             android:text="Note that your score only increases if you get the answer correct on your first try!"
             android:textAlignment="center"
