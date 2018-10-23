@@ -17,12 +17,12 @@ import java.util.ArrayList;
 public class FlashCardAdapter extends RecyclerView.Adapter<FlashCardAdapter.ViewHolder> {
 
     private static final String TAG = "FlashCardAdapter";
-    private ArrayList<FlashCard> adapterList = new ArrayList<>();
+    private ArrayList<FlashCard> adapterList;
     boolean is_in_editTopic_mode = false;
     boolean is_in_editFact_mode = false;
 
-    EditText edit_topic;
-    EditText edit_fact;
+    //EditText edit_topic;
+    //EditText edit_fact;
     TextView topic;
     TextView fact;
     CheckBox deleteBox;
@@ -90,7 +90,7 @@ public class FlashCardAdapter extends RecyclerView.Adapter<FlashCardAdapter.View
 
 
         //INSERT PSEUDOCODE HERE
-        viewHolder.fact.setOnClickListener(new View.OnClickListener() {
+        /*viewHolder.fact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: edit fact: ");
@@ -99,9 +99,9 @@ public class FlashCardAdapter extends RecyclerView.Adapter<FlashCardAdapter.View
                 adapterList.get(position).setTopic(edit_fact.getText().toString());
                 notifyDataSetChanged();
             }
-        });
+        });*/
 
-        //INSERT PSEUDOCODE HERE
+        /*//INSERT PSEUDOCODE HERE
         viewHolder.topic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,7 +111,7 @@ public class FlashCardAdapter extends RecyclerView.Adapter<FlashCardAdapter.View
                 adapterList.get(position).setTopic("Hello");
                 notifyDataSetChanged();
             }
-        });
+        });*/
     }
 
 

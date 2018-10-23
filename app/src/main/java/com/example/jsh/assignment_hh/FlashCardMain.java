@@ -42,6 +42,7 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_card_main);
 
+
         if (counter1 == 0) {
             loadData();
         }
@@ -71,7 +72,7 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
     private void getFlashCards() {
         Log.d(TAG, "Getting flash card data");
 
-        if (mFlashCard == null) {
+        if (mFlashCard.size() == 0 && counter1 == 0) {
 
             mFlashCard.add(new FlashCard("Abstraction", "\n" +
                     "The main goal of Abstraction in OOP is to handle complexity by hiding unnecessary details from the user. " +
@@ -175,5 +176,7 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
         is_in_action_mode = false;
         deleteBtn.setVisibility(View.GONE);
     }
+
+
 
 }

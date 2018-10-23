@@ -6,11 +6,11 @@
 
     <color name="LessonColor">#c0ffa3</color>
     <color name="FlashColor">#F4d442</color>
-    <color name="QuizColor">#87c3ff</color>
+    <color name="QuizColor">#EDF6F1</color>
+
     <color name="YoutubeColor">#ff8282</color>
     <color name="SplashColor">#0E6273</color>
     <color name ="FlashCardBackground">#c6e2ff</color>
     <color name ="TextInput">#D3D3D3</color>
-
 
 </resources>
