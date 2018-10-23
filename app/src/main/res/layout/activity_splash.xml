@@ -4,21 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/SplashColor"
+    android:background="#168ED9"
     tools:context=".SplashActivity">
 
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:src="@drawable/infinitewhaleloop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="278dp"
-        android:layout_height="213dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="60dp"
-        android:paddingBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/imageView5"
+        android:layout_width="228dp"
+        android:layout_height="92dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintTop_toTopOf="@+id/gifImageView2"
+        app:srcCompat="@drawable/logoiconrectangle" />
+
+
 </android.support.constraint.ConstraintLayout>
