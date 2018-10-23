@@ -45,7 +45,8 @@
         <activity android:name=".FlashCardMain" />
         <activity android:name=".AddFlashCard" />
         <activity android:name=".ContentMain" />
-        <activity android:name=".QuizMain"></activity>
+        <activity android:name=".QuizMain" />
+        <activity android:name=".QuizScore"></activity>
     </application>
 
 </manifest>

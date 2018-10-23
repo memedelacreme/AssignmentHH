@@ -38,7 +38,7 @@ public class QuizMain extends AppCompatActivity {
     int score = 0;
     ArrayList<Question> quizQuestions;
     Question currentQuestion;
-    boolean firstAttempt;
+    boolean firstAttempt = true;
 
     //viewables
     TextView MCQuestion;
@@ -172,9 +172,7 @@ public class QuizMain extends AppCompatActivity {
         Log.d(TAG, "onCreate: You have quiz array has been created successfully, size: " + quizQuestions.size());
 
         //random number generator to determine first question
-        currentQuestion = quizQuestions.get(22);
-        //TODO uncomment out
-//        currentQuestion = quizQuestions.get(randomNumber());
+        currentQuestion = quizQuestions.get(randomNumber());
 
         //Set the display
         setDisplay();
@@ -212,6 +210,7 @@ public class QuizMain extends AppCompatActivity {
                                         firstAttempt = false;
                                     } else {
                                         //correct answer
+                                        Toast.makeText(QuizMain.this, "Correct!", Toast.LENGTH_SHORT).show();
                                         radioGroup.clearCheck();
                                         incrementOrEnd();
                                     }
@@ -224,6 +223,7 @@ public class QuizMain extends AppCompatActivity {
                                         firstAttempt = false;
                                     } else {
                                         //correct answer
+                                        Toast.makeText(QuizMain.this, "Correct!", Toast.LENGTH_SHORT).show();
                                         radioGroup.clearCheck();
                                         incrementOrEnd();
                                     }
@@ -236,6 +236,7 @@ public class QuizMain extends AppCompatActivity {
                                         firstAttempt = false;
                                     } else {
                                         //correct answer
+                                        Toast.makeText(QuizMain.this, "Correct!", Toast.LENGTH_SHORT).show();
                                         radioGroup.clearCheck();
                                         incrementOrEnd();
                                     }
@@ -248,6 +249,7 @@ public class QuizMain extends AppCompatActivity {
                                         firstAttempt = false;
                                     } else {
                                         //correct answer
+                                        Toast.makeText(QuizMain.this, "Correct!", Toast.LENGTH_SHORT).show();
                                         radioGroup.clearCheck();
                                         incrementOrEnd();
                                     }
@@ -262,7 +264,7 @@ public class QuizMain extends AppCompatActivity {
                         Log.d(TAG, "onClick: The correct answer is [" + thisquesiton2.getFBanswer() + "]");
                         Log.d(TAG, "onClick: The answer selected was [" + answerText.getText() + "]");
 
-                        if (answerText.getText().toString().equals(thisquesiton2.getFBanswer())) {
+                        if (answerText.getText().toString().trim().equals(thisquesiton2.getFBanswer())) {
                             Toast.makeText(QuizMain.this, "Correct!", Toast.LENGTH_SHORT).show();
                             //clear answers
                             answerText.setText("");
@@ -276,20 +278,33 @@ public class QuizMain extends AppCompatActivity {
 
                     case 2://i.e. the question is a DnD Question
                         //TODO create check for DnD
+                        DnDQuestion thisquesiton3 = (DnDQuestion) currentQuestion;
+                        int[] answerArray = thisquesiton3.getCorrectOrder();
+                        TextView[] TVArray = new TextView[]{movable1, movable2, movable3, movable4};
 
-                        //clear answers
-                        holderRow.removeAllViews();
-                        row1.removeAllViews();
+                        int correctCounter = 0;
 
-                        holderRow.addView(DnDExplain);
-                        row1.addView(movable1);
-                        row1.addView(movable2);
-                        row1.addView(movable3);
-                        row1.addView(movable4);
+                        int b = row1.getChildCount();
 
-                        //implement incrementOrEnd when correct - should populate the right answers
+                        for (int a = 0; a < b; a++) {
+                            TextView myTV = (TextView) row1.getChildAt(a);
+                            TextView testObject = (TextView) TVArray[(answerArray[a] - 1)];
+                            if (myTV.getText() == testObject.getText()) {
+                                correctCounter++;
+                            }
+                        }
 
-                        myViewFlipper.setDisplayedChild(0);
+                        //if they got all four correct then
+                        if (correctCounter == 4) {
+
+                            Toast.makeText(QuizMain.this, "Correct!", Toast.LENGTH_SHORT).show();
+                            incrementOrEnd();
+                        } else { //otherwise
+                            correctCounter = 0;
+                            firstAttempt = false;
+                            Toast.makeText(getApplicationContext(), "Incorrect - please try again", Toast.LENGTH_SHORT).show();
+                        }
+
                         break;
                 }
             }
@@ -405,25 +420,38 @@ public class QuizMain extends AppCompatActivity {
             qNumber++;
 
             //TODO implement a boolean for is this is the first attempt or not
-            if (firstAttempt = true) {
+            if (firstAttempt == true) {
                 score++;
+                Log.d(TAG, "incrementOrEnd: The users score is currently " + score);
             }
 
+            firstAttempt = true;
             currentQuestion = quizQuestions.get(randomNumber());
             setDisplay();
 
         }
-        //end the quiz at 10
+        //the quiz ends at 10
         else {
+            if (firstAttempt == true) {
+                score++;
+            }
+
+            Log.d(TAG, "incrementOrEnd: The users score is currently " + score);
+
+            //TODO implement new end quiz activity here
+            Intent finishIntent = new Intent(this, QuizScore.class);
+            finishIntent.putExtra("quizScore", score);
+
+            startActivity(finishIntent);
+            //send score to new thing before resetting
+
+            //remove all previous pages from the backstack - should move straight to home page
+
             //reset the numbers for next time.
             questionNumber.setText("Q1");
             qNumber = 2;
 
-            //TODO insert a for loop here for the number of questions (10)
 
-            //TODO implement new end quiz activity here
-            //send score to new thing before resetting
-            //remove all previous pages from the backstack - should move straight to home page
 
         }
     }
@@ -460,9 +488,18 @@ public class QuizMain extends AppCompatActivity {
 
             holderRow.addView(DnDExplain);
             row1.addView(movable1);
+            movable1.setVisibility(View.VISIBLE);
+
             row1.addView(movable2);
+            movable2.setVisibility(View.VISIBLE);
+
             row1.addView(movable3);
+            movable3.setVisibility(View.VISIBLE);
+
             row1.addView(movable4);
+            movable4.setVisibility(View.VISIBLE);
+
+
 
             myViewFlipper.setDisplayedChild(2);
         }

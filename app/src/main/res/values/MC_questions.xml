@@ -21,7 +21,7 @@
     <string name="MCQ3d">You can call methods from a sub class by using the prefix ".get"</string>
     <integer name="MCQ3answer">3</integer>
 
-    <string name="MCQ4">Given the "Student" is a sub class of the "User" class:</string>
+    <string name="MCQ4">Given that the "Student" class is a sub class of the "User" class:</string>
     <string name="MCQ4a">You can only instantiate objects of the "Student" class</string>
     <string name="MCQ4b">You can instantiate objects of both the "Student" and "User" class</string>
     <string name="MCQ4c">You can instantiate objects of the "User" class with a Student constructor</string>
@@ -35,7 +35,7 @@
     <string name="MCQ5d">casting</string>
     <integer name="MCQ5answer">2</integer>
 
-    <string name="MCQ6">Which key word is used to link a sub class to its super class?</string>
+    <string name="MCQ6">Which keyword is used to link a sub class to its super class?</string>
     <string name="MCQ6a">extends</string>
     <string name="MCQ6b">implements</string>
     <string name="MCQ6c">inherits</string>
@@ -49,7 +49,7 @@
     <string name="MCQ7d">None of the above</string>
     <integer name="MCQ7answer">3</integer>
 
-    <string name="MCQ8">Which of the statements following is true for classes?</string>
+    <string name="MCQ8">Which of the following statements is true for classes?</string>
     <string name="MCQ8a">A no-arg constructor is provided by Java if no constructor is declared for a class</string>
     <string name="MCQ8b">You must always explicitly declare a constructor</string>
     <string name="MCQ8c">An arg constructor for a class is provided by default by Java</string>

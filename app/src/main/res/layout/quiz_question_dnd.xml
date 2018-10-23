@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Click and drag to sort these in the correct order:"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
 
         </LinearLayout>
