@@ -11,8 +11,8 @@ public class FBQuestion extends Question {
         this.FBanswer = FBanswer;
     }
 
-    public FBQuestion(String question, String FBanswer){
-        super(question);
+    public FBQuestion(String topic, String question, String FBanswer) {
+        super(topic, question);
         this.FBanswer = FBanswer;
     }
 }

@@ -50,8 +50,8 @@ public class DnDQuestion extends Question {
         return correctOrder;
     }
 
-    public DnDQuestion(String question, String dnDOptionA, String dnDOptionB, String dnDOptionC, String dnDOptionD, int[] array) {
-        super(question);
+    public DnDQuestion(String topic, String question, String dnDOptionA, String dnDOptionB, String dnDOptionC, String dnDOptionD, int[] array) {
+        super(topic, question);
         this.DnDOptionA = dnDOptionA;
         this.DnDOptionB = dnDOptionB;
         this.DnDOptionC = dnDOptionC;

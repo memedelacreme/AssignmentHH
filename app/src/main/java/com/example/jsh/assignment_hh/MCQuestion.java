@@ -47,8 +47,8 @@ public class MCQuestion extends Question {
         this.MCQAnswer = MCQAnswer;
     }
 
-    public MCQuestion(String question, String optionA, String optionB, String optionC, String optionD, int MCQAnswer){
-        super(question);
+    public MCQuestion(String topic, String question, String optionA, String optionB, String optionC, String optionD, int MCQAnswer) {
+        super(topic, question);
         this.OptionA = optionA;
         this.OptionB = optionB;
         this.OptionC = optionC;

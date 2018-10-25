@@ -51,6 +51,19 @@
             tools:layout_editor_absoluteX="162dp" />
 
         <TextView
+            android:id="@+id/worstTopic"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="#8FFF"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="You should probably revise every topic"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
+            tools:layout_editor_absoluteX="162dp" />
+
+        <TextView
             android:id="@+id/info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
