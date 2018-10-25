@@ -42,8 +42,7 @@
         <activity android:name=".AddFlashCard" />
         <activity android:name=".ContentMain" />
         <activity android:name=".QuizMain" />
-        <activity android:name=".Additional_Resources_Menu"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Additional_Resources_Menu" />
         <activity android:name=".QuizScore"></activity>
 
         <meta-data
