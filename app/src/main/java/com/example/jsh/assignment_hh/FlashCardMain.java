@@ -106,6 +106,7 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
 
     }
 
+    //method that saves arraylist data into shared preferences so flashcards will not disappear upon closing app
     private void saveData(){
         sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         editor = sharedPreferences.edit();
@@ -116,6 +117,7 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
 
     }
 
+    //method that loads saved arraylist from shared preferences when flashcard function is opened
     private void loadData(){
         sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson = new Gson();
