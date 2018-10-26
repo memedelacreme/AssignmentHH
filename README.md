@@ -1,6 +1,8 @@
 # AssignmentHH
 StudyBud
+
 Guide to the Java Files
+
 The app has several main functionalities - outlined below are the java classes mapped to their corresponding functions
 
 Splash Screen
