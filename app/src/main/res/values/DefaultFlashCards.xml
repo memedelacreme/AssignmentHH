@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="top1">Abstraction</string>
+    <string name="fact1">"The main goal of Abstraction in OOP is to handle complexity by hiding unnecessary details from the user. This enables the user to implement more complex logic on top of the provided abstraction without understanding or even thinking about all the hidden complexity."</string>
+
+
+    <string name="top2">Abstract Methods</string>
+    <string name="fact2">"If you want a class to contain a particular method but you want the actual implementation of that method to be determined by child classes, you can declare the method in the parent class as an abstract."</string>
+
+    <string name="top3">Polymorphism</string>
+    <string name="fact3">"Polymorphism is the ability in programming to present the same interface for differing underlying forms (data types)."</string>
+
+
+    <string name="top4">Polymorphism</string>
+    <string name="fact4">"Any Java object that can pass more than one IS-A test is considered to be polymorphic."</string>
+
+
+    <string name="top5">Method Overriding</string>
+    <string name="fact5">"is when a method defined in a superclass or interface is re-defined by one of its subclasses, thus modifying/replacing the behavior the superclass provides."</string>
+
+    <string name="top6">Method Overloading</string>
+    <string name="fact6">"Overloading refers to the ability to use a single identifier to define multiple methods of a class that differ in their input and output parameters."</string>
+
+    <string name="top7">Inheritance</string>
+    <string name="fact7">"Inheritance enables new objects to take on the properties of existing objects. A class that is used as the basis for inheritance is called a superclass or base class. A class that inherits from a superclass is called a subclass or derived class."</string>
+
+    <string name="top8">Extends</string>
+    <string name="fact8">"extends is the keyword used to inherit the properties of a class. Following is the syntax of extends keyword."</string>
+
+    <string name="top9">Super</string>
+    <string name="fact9">"The super keyword can used for two reasons: to invoke the superclass constructor from subclass and to differentiate the members of superclass from the members of subclass, if they have same names."</string>
+
+    <string name="top10">Implements</string>
+    <string name="fact10">"implements keywords is used with classes to inherit the properties of an interface. Interfaces can never be extended by a class."</string>
+
+    <string name="top11">Encapsulation</string>
+    <string name="fact11">"Encapsulation is the process of combining data and functions into a single unit called class. In Encapsulation, the data is not accessed directly; it is accessed through the functions present inside the class."</string>
+
+    <string name="top12">Access Modifiers</string>
+    <string name="fact12">"Most to least restrictive: private, ________ (default), protected, public"</string>
+
+</resources>

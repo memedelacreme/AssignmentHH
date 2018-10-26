@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class FlashCardMain extends AppCompatActivity implements View.OnLongClickListener {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "FlashCardMain";
     boolean is_in_action_mode = false;
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
@@ -75,14 +75,18 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
         //If there are no flash cards, add in default flash cards
         if (mFlashCard.size() == 0 && counter1 == 0) {
 
-            mFlashCard.add(new FlashCard("Abstraction", "\n" +
-                    "The main goal of Abstraction in OOP is to handle complexity by hiding unnecessary details from the user. " +
-                    "That enables the user to implement more complex logic on top of the provided abstraction without understanding or " +
-                    "even thinking about all the hidden complexity."));
-
-            mFlashCard.add(new FlashCard("Inheritance", "\n" +
-                    "Inheritance is a mechanism where you can to derive a class from another class for a hierarchy of " +
-                    "classes that share a set of attributes and methods."));
+            mFlashCard.add(new FlashCard(getString(R.string.top1), getString(R.string.fact1)));
+            mFlashCard.add(new FlashCard(getString(R.string.top2), getString(R.string.fact2)));
+            mFlashCard.add(new FlashCard(getString(R.string.top3), getString(R.string.fact3)));
+            mFlashCard.add(new FlashCard(getString(R.string.top4), getString(R.string.fact4)));
+            mFlashCard.add(new FlashCard(getString(R.string.top5), getString(R.string.fact5)));
+            mFlashCard.add(new FlashCard(getString(R.string.top6), getString(R.string.fact6)));
+            mFlashCard.add(new FlashCard(getString(R.string.top7), getString(R.string.fact7)));
+            mFlashCard.add(new FlashCard(getString(R.string.top8), getString(R.string.fact8)));
+            mFlashCard.add(new FlashCard(getString(R.string.top9), getString(R.string.fact9)));
+            mFlashCard.add(new FlashCard(getString(R.string.top10), getString(R.string.fact10)));
+            mFlashCard.add(new FlashCard(getString(R.string.top11), getString(R.string.fact11)));
+            mFlashCard.add(new FlashCard(getString(R.string.top12), getString(R.string.fact12)));
         }
 
         startRecyclerView();
