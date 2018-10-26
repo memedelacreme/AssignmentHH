@@ -30,10 +30,10 @@ public class OnboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        /*if(!isFirstTimeStartApp()) {
+        if(!isFirstTimeStartApp()) {
             startMainActivity();
             finish();
-        }*/
+        }
 
         setNotifBarTrans();
 
@@ -65,6 +65,7 @@ public class OnboardActivity extends AppCompatActivity {
                 }
             }
         });
+
         onBoardScreens = new int[]{R.layout.onboard0,R.layout.onboard1, R.layout.onboard2, R.layout.onboard3, R.layout.onboard4};
         pagerAdapter = new OnboardPagerAdapter(onBoardScreens,getApplicationContext());
         viewPager.setAdapter(pagerAdapter);
