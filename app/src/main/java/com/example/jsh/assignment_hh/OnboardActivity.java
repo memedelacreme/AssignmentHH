@@ -30,22 +30,23 @@ public class OnboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //If statement to skip onboarding screens if app has been launched before
         if(!isFirstTimeStartApp()) {
             startMainActivity();
             finish();
         }
 
         setNotifBarTrans();
-
         setContentView(R.layout.onboard_activity);
 
+        //Instantiate relevant objects
         nextBtn = findViewById(R.id.next);
         skipBtn = findViewById(R.id.skip);
         viewPager = findViewById(R.id.viewPager);
         layoutDot = findViewById(R.id.dottedLayout);
 
 
-        //When user press skip, start Main Activity
+        //Set functionality for the skip button (go straight to main activity)
         skipBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,12 +54,12 @@ public class OnboardActivity extends AppCompatActivity {
             }
         });
 
+        //Set functionality for next button, which cycles through onboarding screens
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int currentPage = viewPager.getCurrentItem()+1;
                 if(currentPage < onBoardScreens.length) {
-                    //move to next page
                     viewPager.setCurrentItem(currentPage);
                 } else {
                     startMainActivity();
@@ -66,10 +67,12 @@ public class OnboardActivity extends AppCompatActivity {
             }
         });
 
+        //Populate onboarding screens into pagerAdapter, which is used to add sliding effect to activity transitions
         onBoardScreens = new int[]{R.layout.onboard0,R.layout.onboard1, R.layout.onboard2, R.layout.onboard3, R.layout.onboard4};
         pagerAdapter = new OnboardPagerAdapter(onBoardScreens,getApplicationContext());
         viewPager.setAdapter(pagerAdapter);
 
+        //Set buttons and scroll functionality for onboarding screens
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int page, float pageoffset, int pagepixels) {
@@ -79,7 +82,6 @@ public class OnboardActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 if(position == onBoardScreens.length-1){
-                    //LAST PAGE
                     nextBtn.setText("START");
                     skipBtn.setVisibility(View.GONE);
                 }else {
@@ -97,18 +99,21 @@ public class OnboardActivity extends AppCompatActivity {
         setDotStatus(0);
     }
 
+    //Method which checks if app has been opened before and returns boolean value
     private boolean isFirstTimeStartApp() {
         SharedPreferences ref = getApplicationContext().getSharedPreferences("IntroSliderApp", Context.MODE_PRIVATE);
         return ref.getBoolean("FirstTimeStartFlag", true);
     }
 
-    private void setFirstTimeStartStatus(boolean stt) {
+    //Method which saves if app has been opened before into SharedPreferences
+    private void setFirstTimeStartStatus(boolean value) {
         SharedPreferences ref = getApplicationContext().getSharedPreferences("IntroSliderApp", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = ref.edit();
-        editor.putBoolean("FirstTimeStartFlag", stt);
+        editor.putBoolean("FirstTimeStartFlag", value);
         editor.commit();
     }
 
+    //Set dots at bottom to change when you cycle through pages
     private void setDotStatus(int page){
         layoutDot.removeAllViews();
         dots =new TextView[onBoardScreens.length];
@@ -119,17 +124,21 @@ public class OnboardActivity extends AppCompatActivity {
             dots[i].setTextColor(Color.parseColor("#a9b4bb"));
             layoutDot.addView(dots[i]);
         }
-        //Set current dot active
+        //Set current dot
         if(dots.length>0){
             dots[page].setTextColor(Color.parseColor("#ffffff"));
         }
     }
+
+    //Intent to main activity
     private void startMainActivity(){
         setFirstTimeStartStatus(false);
         startActivity(new Intent(OnboardActivity.this, MainActivity.class));
         finish();
     }
 
+    //Set notification bar as transparent for UI purposes:
+    // NOTE: ONLY WORKS IF SDK is greater than version 21... added if loop so it doesn't crash
     private void setNotifBarTrans(){
         if (Build.VERSION.SDK_INT >= 21){
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE|View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);

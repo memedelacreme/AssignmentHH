@@ -1,5 +1,7 @@
 package com.example.jsh.assignment_hh;
 
+//This is the class that defines the data structure for the flashcard object
+
 public class FlashCard {
 
     private String topic;

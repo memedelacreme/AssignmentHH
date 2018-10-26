@@ -9,36 +9,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.TextView;
 import java.util.ArrayList;
 
-//INSERT PSEUDOCODE HERE
+//This class is a recyclerview adapter, which enables a default card screen to be used multiple times
+//Extends the RecyclerView.Adapter class. Creates views for items
 public class FlashCardAdapter extends RecyclerView.Adapter<FlashCardAdapter.ViewHolder> {
 
     private static final String TAG = "FlashCardAdapter";
     private ArrayList<FlashCard> adapterList;
-    boolean is_in_editTopic_mode = false;
-    boolean is_in_editFact_mode = false;
 
-    //EditText edit_topic;
-    //EditText edit_fact;
-    TextView topic;
-    TextView fact;
     CheckBox deleteBox;
     CardView cardView;
     Context mContext;
 
     FlashCardMain flashcardmain;
 
-    //INSERT PSEUDOCODE HERE
+    //Populate adapter
     public FlashCardAdapter(Context context, ArrayList<FlashCard> adapterList) {
         this.adapterList = adapterList;
         this.mContext = context;
         flashcardmain = (FlashCardMain) context;
     }
 
-    //INSERT PSEUDOCODE HERE
+    //Constructs a RecyclerView.ViewHolder and sets the view it uses to display its contents
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.flashcardlist, parent, false);
@@ -55,6 +49,7 @@ public class FlashCardAdapter extends RecyclerView.Adapter<FlashCardAdapter.View
         final FlashCard flashcard = adapterList.get(position);
         viewHolder.bindFlashCard(adapterList.get(position));
 
+        //Set visibility of the checkbox if the card has been long pressed
         if (!flashcardmain.is_in_action_mode) viewHolder.deleteBox.setVisibility(View.GONE);
         else {
             viewHolder.deleteBox.setVisibility(View.VISIBLE);
@@ -62,11 +57,10 @@ public class FlashCardAdapter extends RecyclerView.Adapter<FlashCardAdapter.View
         }
 
         viewHolder.deleteBox.setOnCheckedChangeListener(null);
-
         //if true, your checkbox will be selected, else unselected
         viewHolder.deleteBox.setSelected(flashcard.isSelected());
 
-        //INSERT PSEUDOCODE HERE
+        //Changes the state of 'selected cards' into selected
         viewHolder.deleteBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isSelected) {
@@ -75,100 +69,54 @@ public class FlashCardAdapter extends RecyclerView.Adapter<FlashCardAdapter.View
             }
         });
 
-        //show edit box when tapped
-        if(!is_in_editTopic_mode) {
-            viewHolder.edit_topic.setVisibility(View.GONE);
-        } else {
-            viewHolder.edit_topic.setVisibility(View.VISIBLE);
-        }
-
-        if(!is_in_editFact_mode) {
-            viewHolder.edit_fact.setVisibility(View.GONE);
-        } else {
-            viewHolder.edit_fact.setVisibility(View.VISIBLE);
-        }
-
-
-        //INSERT PSEUDOCODE HERE
-        /*viewHolder.fact.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "onClick: edit fact: ");
-                is_in_editTopic_mode = false;
-                is_in_editFact_mode = true;
-                adapterList.get(position).setTopic(edit_fact.getText().toString());
-                notifyDataSetChanged();
-            }
-        });*/
-
-        /*//INSERT PSEUDOCODE HERE
-        viewHolder.topic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "onClick: edit topic: ");
-                is_in_editFact_mode = false;
-                is_in_editTopic_mode = true;
-                adapterList.get(position).setTopic("Hello");
-                notifyDataSetChanged();
-            }
-        });*/
     }
 
 
-    //INSERT PSEUDOCODE HERE
+    //returns the number of items currently available in adapter
     @Override
     public int getItemCount() {
         return adapterList.size();
     }
 
-    //INSERT PSEUDOCODE HERE
+    //Viewholder class, which describes an item view and the metadata about its place within the RecyclerView.
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         FlashCardMain flashcardmain;
-        EditText edit_topic;
-        EditText edit_fact;
         TextView topic;
         TextView fact;
         CheckBox deleteBox;
         CardView cardView;
-        Context mContext;
 
-        //INSERT PSEUDOCODE HERE
         public ViewHolder(View itemView, FlashCardMain flashcardmain) {
             super(itemView);
             topic = itemView.findViewById(R.id.topic_view);
             fact = itemView.findViewById(R.id.fact_view);
             deleteBox = itemView.findViewById(R.id.deleteBox);
             cardView = itemView.findViewById(R.id.cardView);
-            edit_topic = itemView.findViewById(R.id.edit_topic);
-            edit_fact = itemView.findViewById(R.id.edit_fact);
             this.flashcardmain = flashcardmain;
 
             cardView.setOnLongClickListener(flashcardmain);
             deleteBox.setOnClickListener(this); ///diff
         }
 
-        //INSERT PSEUDOCODE HERE
+        //Binds text onto flashcards
         public void bindFlashCard(FlashCard adapterList) {
             topic.setText(adapterList.getTopic());
             fact.setText(adapterList.getFact());
         }
 
-        //INSERT PSEUDOCODE HERE
+        //If flashcards are checked call prepareSelection method
         public void onClick(View view) {
             flashcardmain.prepareSelection(view, getAdapterPosition());
         }
 
     }
 
-    //INSERT PSEUDOCODE HERE
+    //Removes flashcards if deleted and updates adapter to reflect changes
     public void updateAdapter(ArrayList<FlashCard> list) {
         for (FlashCard flashcard : list) {
             adapterList.remove(flashcard);
         }
         notifyDataSetChanged();
     }
-
 }
-
-//TODO: Finish Edit Topic/Fact function --> setFact/setTopic to input box text

@@ -12,11 +12,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.EditText;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
@@ -34,6 +31,7 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
     SharedPreferences.Editor editor;
     static int counter1 = 0;
 
+    //Create flashcard arraylist
     static ArrayList<FlashCard> mFlashCard = new ArrayList<>();
     ArrayList<FlashCard> selectedFlashCards = new ArrayList<>();
 
@@ -42,13 +40,14 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_card_main);
 
-
+        //Only call loadData() if addflashcard has not been visited, so added flash cards are not overwritten until saved
         if (counter1 == 0) {
             loadData();
         }
 
         getFlashCards();
 
+        //Set functionality for the add button to go to addflashcard activity
         addFCButton = findViewById(R.id.addFlashCardActivity);
         addFCButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +57,7 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
             }
         });
 
+        //Set functionality for the delete button to remove checked cards
         deleteBtn = findViewById(R.id.deleteBtn);
         deleteBtn.setVisibility(View.GONE);
         deleteBtn.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +72,7 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
     private void getFlashCards() {
         Log.d(TAG, "Getting flash card data");
 
+        //If there are no flash cards, add in default flash cards
         if (mFlashCard.size() == 0 && counter1 == 0) {
 
             mFlashCard.add(new FlashCard("Abstraction", "\n" +
@@ -87,6 +88,7 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
         startRecyclerView();
     }
 
+    //Start recycler view
     public void startRecyclerView() {
         Log.d(TAG, "initRecyclerView: init recyclerView");
 
@@ -122,6 +124,9 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
         }
     }
 
+    //Set functionality for when back press button.
+    //Sets the state for the activity to default if it is currently in action mode (delete button and checkbox shows)
+    //Go to the main screen
     @Override
     public void onBackPressed(){
 
@@ -137,12 +142,15 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
         }
     }
 
+    //If app is paused, save the flashcard data so it isn't lost
     @Override
     public void onPause(){
         super.onPause();
         saveData();
     }
 
+    //Long click flashcard to go into "Action Mode" which sets the visibility of the checkbox and delete button
+    //Vibrate on long click to indicate 'Action Mode' has been entered
     @Override
     public boolean onLongClick(View view) {
         if (!is_in_action_mode) {
@@ -155,6 +163,8 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
         return true;
     }
 
+    //Removes cards from mFlashcards that have been checked and stores into temp arraylist "selectedFlashCards"
+    //This arraylist gets removed when delete button is pressed delete
     public void prepareSelection(View view, int position){
 
         if (((CheckBox)view).isChecked()){
@@ -164,6 +174,7 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
         }
     }
 
+    //Deletes selectedFlashCards arrarylist and returns activity back into default mode
     public void deleteSelectedItems(){
         Log.d(TAG, "Deleting cards");
         FlashCardAdapter FCAdapter = (FlashCardAdapter) adapter;
@@ -172,6 +183,7 @@ public class FlashCardMain extends AppCompatActivity implements View.OnLongClick
         clearActionMode();
     }
 
+    //Return activity back into default mode
     public void clearActionMode(){
         is_in_action_mode = false;
         deleteBtn.setVisibility(View.GONE);
