@@ -20,7 +20,8 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -29,16 +30,31 @@
 
 
         <activity android:name=".OnboardActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            >
         </activity>
 
-        <activity android:name=".MainActivity" />
-        <activity android:name=".FlashCardMain" />
-        <activity android:name=".AddFlashCard" />
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".FlashCardMain"
+            android:screenOrientation="portrait"
+
+            />
+        <activity android:name=".AddFlashCard"
+            android:screenOrientation="portrait"
+            />
         <activity android:name=".ContentMain" />
-        <activity android:name=".QuizMain" />
-        <activity android:name=".Additional_Resources_Menu" />
-        <activity android:name=".QuizScore"></activity>
+        <activity android:name=".QuizMain"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".Additional_Resources_Menu"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".QuizScore"
+            android:screenOrientation="portrait"
+            />
 
         <meta-data
             android:name="preloaded_fonts"
