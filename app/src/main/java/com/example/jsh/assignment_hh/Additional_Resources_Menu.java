@@ -46,25 +46,20 @@ public class Additional_Resources_Menu extends AppCompatActivity {
 
     }
 
+    //set an listener for the video thumbnails to play
     AdapterView.OnItemClickListener playVideo = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-            //copyied the array to get the details - couldnt do it in one go like in VideoAdapter
+            //made a copy the array to get the details
             ArrayList<VideoDetails> videoDetails = VideoDetails.getMyVideos();
 
             //Get the name of the video (Test)
             String title = videoDetails.get(position).getVideoTitle();
             String url = videoDetails.get(position).getVideoUrl();
 
-
-            Log.d(TAG, "onItemClick: You clicked on video " + title);
+            Log.d(TAG, "onItemClick: Playing video " + title);
             Toast.makeText(Additional_Resources_Menu.this, title, Toast.LENGTH_SHORT).show();
-
-            //create intent and pass it to the youtube video?
-            //Intent intent = YouTubeStandalonePlayer.createVideoIntent(this, Additional_Resources_Menu.YOUTUBE_API_KEY, videoDetails.get(position).getVideoUrl());
-
-            //Intent intent = YouTubeStandalonePlayer.createVideoIntent((Activity) this, YOUTUBE_API_KEY, videoDetails.get(position).getVideoUrl());
 
             //creates an intent for both the youtube app and default browser if no youtube app is available
             Intent youtubeIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + url));
@@ -79,6 +74,7 @@ public class Additional_Resources_Menu extends AppCompatActivity {
         }
     };
 
+    //takes it back to the home screen rather than go home
     public void onBackPressed() {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

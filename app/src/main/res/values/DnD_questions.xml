@@ -3,29 +3,25 @@
     <string name="DnDQ1">Arrange the following code snippets into the correct order:</string>
     <string name="DnDQ1_1">
         \n public Student(String fName, String lName, String degree, String zID) {
-        \n \t this.firstName = fName;
-        \n \t this.lastName = lName;
-        \n \t this.degree = degree;
-        \n \t this.zID = zID;
-        \n } 
-    \n \t</string>
+        \n \t \t this.firstName = fName;
+        \n \t \t this.lastName = lName;
+        \n \t \t this.degree = degree;
+        \n \t \t this.zID = zID;
+        \n } </string>
     <string name="DnDQ1_2">
         \n public class User {
-         \n \tprivate String firstName;
-        \n \tprivate String lastName;
-    \n \t</string>
+         \n \t \t private String firstName;
+        \n \t \t private String lastName;</string>
     <string name="DnDQ1_3">
         \n public class Student extends User {
-        \n \t private String degree;
-        \n \t private String zID;
-    \n \t</string>
+        \n \t \t private String degree;
+        \n \t \t private String zID;</string>
     <string name="DnDQ1_4">
-        \n \t public User (String firstName, String lastName) {
-        \n \t this.firstName = firstName;
-        \n \t this.lastName = lastName;
-        \n \t}  
-        \n }
-    \n \t</string>
+        \n \t \t public User (String firstName, String lastName) {
+        \n \t \t this.firstName = firstName;
+        \n \t \t this.lastName = lastName;
+        \n \t \t}  
+        \n }</string>
     <integer-array name="DNDQ1answer">
         <item>2</item>
         <item>4</item>
@@ -33,27 +29,28 @@
         <item>1</item>
     </integer-array>
 
+
     <string name="DnDQ2">Given the class Car, rearrange the following details </string>
     <string name="DnDQ2_1">
         \n @Override
-    \n </string>
+    \n \t</string>
     <string name="DnDQ2_2">
         \n private String model;
         \n private int makeYear;
         \n //includes getters and setters
-    \n </string>
+    \n \t</string>
     <string name="DnDQ2_3">
         \n public String toString() {
-        \n \tString value = (“This car is a “ + this.getMakeYear() + “ “ + this.getModel());
-        \n \treturn value;
+        \n \t \t String value = (“This car is a “ + this.getMakeYear() + “ “ + this.getModel());
+        \n \t \t return value;
         \n }
-    \n </string>
+    \n \t</string>
     <string name="DnDQ2_4">
         \n public Car(String model, int year) {
-        \n \t this.model = model;
-        \n \t this.makeYear = year;
+        \n \t \t this.model = model;
+        \n \t \t this.makeYear = year;
         \n }
-    \n </string>
+    \n \t</string>
     <integer-array name="DNDQ2answer">
         <item>2</item>
         <item>4</item>

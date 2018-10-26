@@ -43,7 +43,6 @@ public class VideoDetails {
         return this.videoDescription;
     }
 
-    //TODO add the appropriate videos to the below list
     //array list containing the video and details
     private static ArrayList<VideoDetails> myVideos = new ArrayList<VideoDetails>() {{
         add(new VideoDetails(1, "What is Object Orientated Programming? - Processing Tutorial", "YcbcfkLzgvs", "This video explains the role of OOP in Java and how it works to develop more effective code."));

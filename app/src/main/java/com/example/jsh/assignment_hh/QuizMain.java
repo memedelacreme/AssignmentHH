@@ -174,7 +174,7 @@ public class QuizMain extends AppCompatActivity {
             /*21*/
             add(new MCQuestion("Polymorphism", getString(R.string.MCQ12), getString(R.string.MCQ12a), getString(R.string.MCQ12b), getString(R.string.MCQ12c), getString(R.string.MCQ12d), getResources().getInteger(R.integer.MCQ12answer)));
             /*22*/
-            add(new DnDQuestion("Inheritance", getString(R.string.DnDQ1), getString(R.string.DnDQ1_1), getString(R.string.DnDQ1_2), getString(R.string.DnDQ1_3), getString(R.string.DnDQ1_4), r.getIntArray(R.array.DNDQ1answer)));
+//            add(new DnDQuestion("Inheritance", getString(R.string.DnDQ1), getString(R.string.DnDQ1_1), getString(R.string.DnDQ1_2), getString(R.string.DnDQ1_3), getString(R.string.DnDQ1_4), r.getIntArray(R.array.DNDQ1answer)));
             /*23*/
             add(new DnDQuestion("OOP", getString(R.string.DnDQ2), getString(R.string.DnDQ2_1), getString(R.string.DnDQ2_2), getString(R.string.DnDQ2_3), getString(R.string.DnDQ2_4), r.getIntArray(R.array.DNDQ2answer)));
             /*24*/
@@ -378,6 +378,7 @@ public class QuizMain extends AppCompatActivity {
         }
     }
 
+    //drag and drop functionality inspired by (http://www.vogella.com/tutorials/AndroidDragAndDrop/article.html)
     class MyDragListener implements View.OnDragListener {
         Drawable enterShape = getResources().getDrawable(
                 R.drawable.shape_drop_indicator);

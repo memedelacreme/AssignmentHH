@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
+//the question class will be extended by the differen question type subclasses
 public class Question extends AppCompatActivity {
     private String topic;
     private String question;

@@ -24,11 +24,9 @@ public class QuizScore extends AppCompatActivity {
         TextView score = (TextView) findViewById(R.id.score);
         ImageView background = (ImageView) findViewById(R.id.scoreBackground);
 
-
-
+        //pull values from the intent
         int quizScore = getIntent().getIntExtra("quizScore", 0);
         String worstTopic = getIntent().getStringExtra("worstTopic");
-
         Log.d(TAG, "onCreate: Pulled '" + quizScore + "' and '" + worstTopic + "' from the intent");
 
         //tell them what their worst topic is if they got at least 1 answer correct(otherwise its a useless)

@@ -29,18 +29,17 @@ public class VideoAdapter extends ArrayAdapter<VideoDetails> {
         //get the video for this position
         VideoDetails videoDetails = getItem(position);
 
-
         //check if an existing view is being reused? Otherwise inflate the view with this
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.youtube_player_view,parent,false);
         }
 
-        //create/find the imageview and two images from the xml file we're going to be using
+        //create/find the imageview and two textviews from the xml file we're going to be using
         ImageView videoThumbnail = (ImageView) convertView.findViewById(R.id.thumbnail);
         TextView title = (TextView) convertView.findViewById(R.id.myTitle);
         TextView description = (TextView) convertView.findViewById(R.id.myDescription);
 
-        //set the image using picasso
+        //set the image using the youtube video url using Picasso API
         String url = videoDetails.getVideoUrl();
         String imageUrl = "https://img.youtube.com/vi/" + url + "/hqdefault.jpg";
         Picasso.with(getContext()).load(imageUrl).into(videoThumbnail);
